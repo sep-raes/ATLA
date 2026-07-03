@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "atla:item/bison_whistle",
+    "fallback": {
+      "type": "model",
+      "model": "item/gold_ingot"
+    }
+  }
+}
