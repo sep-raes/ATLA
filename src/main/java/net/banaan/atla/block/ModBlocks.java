@@ -2,15 +2,25 @@ package net.banaan.atla.block;
 
 import net.banaan.atla.block.custom.FruitPieBlock;
 import net.banaan.atla.item.ModItems;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.StateDefinition;
+import net.minecraft.world.level.block.state.properties.BlockSetType;
+import net.minecraft.world.level.block.state.properties.WoodType;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.level.material.Fluids;
+import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.awt.*;
 import java.util.function.Supplier;
 
 import static net.banaan.atla.Atla.MODID;
@@ -38,6 +48,18 @@ public class ModBlocks {
             () -> new RotatedPillarBlock(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_LOG)));
 
+    public static final RegistryObject<Block> STRIPPED_BANANA_LOG = registerBlock("stripped_banana_log",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.STRIPPED_SPRUCE_LOG)));
+
+    public static final RegistryObject<Block> BANANA_WOOD = registerBlock("banana_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_WOOD)));
+
+    public static final RegistryObject<Block> STRIPPED_BANANA_WOOD = registerBlock("stripped_banana_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.STRIPPED_SPRUCE_WOOD)));
+
     public static final RegistryObject<Block> BANANA_PLANKS = registerBlock("banana_planks",
             () -> new Block(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_PLANKS)));
@@ -47,9 +69,73 @@ public class ModBlocks {
                     BANANA_PLANKS.get().defaultBlockState(),
                     BlockBehaviour.Properties.copy(Blocks.SPRUCE_STAIRS)));
 
+    public static final RegistryObject<Block> BANANA_SLAB = registerBlock("banana_slab",
+            () -> new SlabBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_SLAB)));
+
+    public static final RegistryObject<Block> BANANA_TRAPDOOR = registerBlock("banana_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_TRAPDOOR),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Block> BANANA_DOOR = registerBlock("banana_door",
+            () -> new DoorBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_DOOR),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Block> BANANA_FENCE = registerBlock("banana_fence",
+            () -> new FenceBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_FENCE)));
+
+    public static final RegistryObject<Block> BANANA_FENCE_GATE = registerBlock("banana_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_FENCE_GATE),
+                    WoodType.SPRUCE));
+
+    public static final RegistryObject<Block> BANANA_PRESSURE_PLATE = registerBlock("banana_pressure_plate",
+            () -> new PressurePlateBlock(
+                    PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Block> BANANA_BUTTON = registerBlock("banana_button",
+            () -> new ButtonBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE),
+                    BlockSetType.SPRUCE, 10,true));
+
+    public static final RegistryObject<Block> BANANA_LEAVES = registerBlock("banana_leaves",
+            () -> new LeavesBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE)));
+    /*
+    public static final RegistryObject<SignBlock> BANANA_SIGN = BLOCKS.register("banana_sign",
+            () -> new SignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), WoodType.SPRUCE) {
+                @Override
+                protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
+                    super.createBlockStateDefinition(builder);
+                    builder.add(WATERLOGGED);
+                }
+
+                @Override
+                public FluidState getFluidState(BlockState state) {
+                    return state.getValue(WATERLOGGED) ? Fluids.WATER.getSource(false) : super.getFluidState(state);
+                }
+
+                @Override
+                public boolean placeLiquid(LevelAccessor world, BlockPos pos, BlockState state, FluidState fluidState) {
+                    if (!state.getValue(WATERLOGGED) && fluidState.getType() == Fluids.WATER) {
+                        world.setBlock(pos, state.setValue(WATERLOGGED, true), 3);
+                        world.scheduleTick(pos, fluidState.getType(), fluidState.getType().getTickDelay(world));
+                        return true;
+                    }
+                    return false;
+                }
+            });
+
+    public static final RegistryObject<WallSignBlock> WALL_BANANA_SIGN = BLOCKS.register("wall_banana_sign",
+            () -> new WallSignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_WALL_SIGN).lootFrom(BANANA_SIGN), WoodType.SPRUCE));
 
 
-
+    */
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

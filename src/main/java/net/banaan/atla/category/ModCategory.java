@@ -5,6 +5,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -34,6 +35,21 @@ public class ModCategory {
                         output.accept(BANANA_LOG.get());
                         output.accept(BANANA_PLANKS.get());
                         output.accept(BANANA_STAIRS.get());
+                        output.accept(BANANA_BUTTON.get());
+                        output.accept(BANANA_DOOR.get());
+                        output.accept(BANANA_FENCE.get());
+                        output.accept(BANANA_FENCE_GATE.get());
+                        output.accept(BANANA_PRESSURE_PLATE.get());
+                        output.accept(BANANA_SLAB.get());
+                        output.accept(BANANA_TRAPDOOR.get());
+                        output.accept(BANANA_WOOD.get());
+                        output.accept(STRIPPED_BANANA_LOG.get());
+                        output.accept(STRIPPED_BANANA_WOOD.get());
+                        output.accept(BANANA_LEAVES.get());
+                        //output.accept(new ItemStack(BANANA_SIGN.get(), 1));
+
+
+
                     })
                     .build());
 

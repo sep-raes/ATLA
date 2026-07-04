@@ -20,17 +20,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         stairsBlock(((StairBlock) ModBlocks.BANANA_STAIRS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
 
-        //slabBlock(((SlabBlock) ModBlocks.BANANA_SLAB.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
+        slabBlock(((SlabBlock) ModBlocks.BANANA_SLAB.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
 
-        //buttonBlock(((ButtonBlock) ModBlocks.BANANA_BUTTON.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
-        //pressurePlateBlock(((PressurePlateBlock) ModBlocks.BANANA_STAIRS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
+        buttonBlock(((ButtonBlock) ModBlocks.BANANA_BUTTON.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
+        pressurePlateBlock(((PressurePlateBlock) ModBlocks.BANANA_PRESSURE_PLATE.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
 
-        // fenceBlock(((FenceBlock) ModBlocks.BANANA_STAIRS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
-        //fenceGateBlock(((FenceGateBlock) ModBlocks.BANANA_FENCE.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
+        fenceBlock(((FenceBlock) ModBlocks.BANANA_FENCE.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
+        fenceGateBlock(((FenceGateBlock) ModBlocks.BANANA_FENCE_GATE.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
         //wallBlock(((WallBlock) ModBlocks.BANANA_WALL.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
 
-        //doorBlockWithRenderType(((DoorBlock) ModBlocks.SAPPHIRE_DOOR.get()), modLoc("block/sapphire_door_bottom"), modLoc("block/sapphire_door_top"), "cutout");
-        //trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.SAPPHIRE_TRAPDOOR.get()), modLoc("block/sapphire_trapdoor"), true, "cutout");
+        doorBlockWithRenderType(((DoorBlock) ModBlocks.BANANA_DOOR.get()), modLoc("block/banana_door_bottom"), modLoc("block/banana_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BANANA_TRAPDOOR.get()), modLoc("block/banana_trapdoor"), true, "cutout");
+
+
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {

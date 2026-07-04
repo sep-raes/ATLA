@@ -9,6 +9,9 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.SlabBlock;
+import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
@@ -25,7 +28,24 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        this.dropSelf(ModBlocks.BANANA_PLANT.get());
+        this.dropSelf(ModBlocks.BANANA_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_BANANA_LOG.get());
+        this.dropSelf(ModBlocks.BANANA_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_BANANA_WOOD.get());
+        this.dropSelf(ModBlocks.BANANA_PLANKS.get());
+        this.dropSelf(ModBlocks.BANANA_STAIRS.get());
+
+        this.add(ModBlocks.BANANA_SLAB.get(), block -> createSlabDrop(ModBlocks.BANANA_SLAB.get()));
+
+        this.dropSelf(ModBlocks.BANANA_TRAPDOOR.get());
+        this.dropSelf(ModBlocks.BANANA_DOOR.get());
+        this.dropSelf(ModBlocks.BANANA_FENCE.get());
+        this.dropSelf(ModBlocks.BANANA_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.BANANA_PRESSURE_PLATE.get());
+        this.dropSelf(ModBlocks.BANANA_BUTTON.get());
+        this.dropSelf(ModBlocks.BANANA_LEAVES.get());
+        //this.dropSelf(ModBlocks.BANANA_SIGN.get());
+        //this.dropSelf(ModBlocks.WALL_BANANA_SIGN.get());
 
 
         this.add(ModBlocks.BANANA_PLANT.get(),
@@ -34,12 +54,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createFortuneDrop(ModBlocks.BANANA_PLANT.get(), ModItems.BANANA_LEAF.get()));
         this.add(ModBlocks.FRUIT_PIE.get(),
                 block -> createClearDrop());
-        this.add(ModBlocks.BANANA_LOG.get(),
-                block -> createSingleItemTable(ModBlocks.BANANA_LOG.get()));
-        this.add(ModBlocks.BANANA_PLANKS.get(),
-                block -> createSingleItemTable(ModBlocks.BANANA_PLANKS.get()));
-        this.add(ModBlocks.BANANA_STAIRS.get(),
-                block -> createSingleItemTable(ModBlocks.BANANA_STAIRS.get()));
 
 
     }
@@ -54,7 +68,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     protected LootTable.Builder createClearDrop() { return LootTable.lootTable(); }
 
-    protected LootTable.Builder createSingleDrop(Item item) { return createSingleItemTable(item); }
+    protected LootTable.Builder createSlabDrop(Block block) {  return createSlabItemTable(block); }
+
 
     @Override
     protected Iterable<Block> getKnownBlocks() {
