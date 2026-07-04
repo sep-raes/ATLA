@@ -16,6 +16,7 @@ java {
     toolchain.languageVersion = JavaLanguageVersion.of(17)
 }
 
+
 minecraft {
     // The mappings can be changed at any time and must be in the following format.
     // Channel:   Version:
@@ -160,7 +161,7 @@ tasks.named('processResources', ProcessResources).configure {
                              mod_authors         : mod_authors, mod_description: mod_description,]
 
     inputs.properties replaceProperties
-
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     filesMatching(['META-INF/mods.toml', 'pack.mcmeta']) {
         expand replaceProperties + [project: project]
     }
@@ -185,3 +186,16 @@ tasks.named('jar', Jar).configure {
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8' // Use the UTF-8 charset for Java compilation
 }
+
+
+tasks {
+    processResources {
+        from("src/generated/resources") {
+            include "**/*"
+        }
+        from("src/main/resources") {
+            include "**/*"
+        }
+    }
+}
+

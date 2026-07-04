@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/stairs",
+  "textures": {
+    "bottom": "atla:block/banana_stairs",
+    "side": "atla:block/banana_stairs",
+    "top": "atla:block/banana_stairs"
+  }
+}
