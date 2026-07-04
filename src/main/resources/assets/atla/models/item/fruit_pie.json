@@ -1,0 +1,6 @@
+{
+  "parent": "atla:block/fruit_pie",
+  "textures": {
+    "all": "atla:block/fruit_pie"
+  }
+}
