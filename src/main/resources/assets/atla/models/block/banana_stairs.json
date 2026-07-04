@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/stairs",
-  "textures": {
-    "bottom": "atla:block/banana_planks",
-    "side": "atla:block/banana_planks",
-    "top": "atla:block/banana_planks"
-  }
-}
