@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "#": {
+      "item": "minecraft:sugar"
+    },
+    "A": {
+      "item": "minecraft:melon_slice"
+    },
+    "B": {
+      "item": "atla:banana"
+    },
+    "M": {
+      "item": "minecraft:apple"
+    },
+    "W": {
+      "item": "minecraft:wheat"
+    },
+    "o": {
+      "item": "minecraft:egg"
+    },
+    "u": {
+      "item": "minecraft:milk_bucket"
+    }
+  },
+  "pattern": [
+    "#u#",
+    "ABM",
+    "WoW"
+  ],
+  "result": {
+    "item": "atla:fruit_pie"
+  },
+  "show_notification": true
+}
