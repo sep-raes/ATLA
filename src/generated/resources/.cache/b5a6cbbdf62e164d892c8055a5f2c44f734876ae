@@ -1,0 +1,11 @@
+// 1.20.1	2026-07-04T14:33:59.9225587	Block States: atla
+f6d67f50242f14f9615a5682d4383158b42947a7 assets/atla/blockstates/banana_plant.json
+5a0c3c1a1aa3bc7617404ccc6fd02724b670259d assets/atla/blockstates/banana_stairs.json
+af2ec9b385190b0e96e8984525770ed32bad04b6 assets/atla/blockstates/fruit_pie.json
+5a4a2a1a9f51053eb84bae090198184bfe863e90 assets/atla/models/block/banana_plant.json
+d0ee42db47173f0fe327543e6f0fcb97419bb954 assets/atla/models/block/banana_stairs.json
+ec707db010aafd63fdad169a8a0f19d6a6612143 assets/atla/models/block/banana_stairs_inner.json
+1dc7a3ac305068d8b5f321c549b694e9670dd729 assets/atla/models/block/banana_stairs_outer.json
+03e478c40fb441815713e69ac43975ace4641750 assets/atla/models/block/fruit_pie.json
+fcca7dc7a175a572a4c0dd7b9a0d87674bacf539 assets/atla/models/item/banana_plant.json
+bcd7ed5a70dfb47496165c9a286d12b049c762a0 assets/atla/models/item/fruit_pie.json
