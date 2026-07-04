@@ -1,0 +1,29 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "atla:block/fruit_pie",
+		"particle": "atla:block/fruit_pie"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [8, 0, 16, 3.5], "texture": "#0"},
+				"east": {"uv": [8, 3.5, 16, 7], "texture": "#0"},
+				"south": {"uv": [8, 7, 16, 10.5], "texture": "#0"},
+				"west": {"uv": [8, 10.5, 16, 14], "texture": "#0"},
+				"up": {"uv": [8, 8, 0, 0], "texture": "#0"},
+				"down": {"uv": [8, 8, 0, 16], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"gui": {
+			"rotation": [11, 13, 0],
+			"translation": [0, 4.25, 0]
+		}
+	}
+}
