@@ -2,9 +2,11 @@ package net.banaan.atla;
 
 import com.mojang.logging.LogUtils;
 import net.banaan.atla.block.ModBlocks;
+import net.banaan.atla.block.ModWoodTypes;
 import net.banaan.atla.category.ModCategory;
 import net.banaan.atla.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.blockentity.SignRenderer;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,8 +38,8 @@ public class Atla {
     public Atla() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
+        ModWoodTypes.register();
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
@@ -60,6 +62,8 @@ public class Atla {
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+
+
     }
 
     // Add the example block item to the building blocks tab

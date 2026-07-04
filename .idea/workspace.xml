@@ -4,7 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6e53e0f0-e8de-42cf-a136-04809ba98590" name="Change" comment="Added datagen, and fruits" />
+    <list default="true" id="6e53e0f0-e8de-42cf-a136-04809ba98590" name="Change" comment="Add ATLA mod assets including banana plant, fruit pie, and related recipes">
+      <change afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/block/ModWoodTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/blockstates/your_block.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/models/item/glider_staff.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/models/item/glider_staff_2d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ATLA.main.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ATLA.main.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/ATLA.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/ATLA.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/59eb3dbb5f86130e09b3c62d89b9525ee01cf52d" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/59eb3dbb5f86130e09b3c62d89b9525ee01cf52d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/generated/resources/.cache/b5a6cbbdf62e164d892c8055a5f2c44f734876ae" beforeDir="false" afterPath="$PROJECT_DIR$/src/generated/resources/.cache/b5a6cbbdf62e164d892c8055a5f2c44f734876ae" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/banaan/atla/Atla.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/Atla.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/banaan/atla/block/ModBlocks.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/block/ModBlocks.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/banaan/atla/category/ModCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/category/ModCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/banaan/atla/datagen/ModBlockStateProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/datagen/ModBlockStateProvider.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/net/banaan/atla/datagen/loot/ModBlockLootTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/net/banaan/atla/datagen/loot/ModBlockLootTables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_log.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_log.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_planks.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_planks.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_stairs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/assets/atla/models/block/banana_stairs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/textures/block/banana_log.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/textures/block/banana_planks.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/assets/atla/textures/block/banana_stairs.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,23 +48,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="ATLA" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ATLA" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ATLA" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle prepare runs" type="c8890929:TasksNode$1" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ATLA" type="f1a62948:ProjectNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="forgegradle runs" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -97,31 +101,32 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_MARK_IGNORED_FILES_AS_EXCLUDED&quot;: &quot;true&quot;,
-    &quot;Gradle.Build untitled.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled [wrapper genIntellijRuns].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [:prepareRunDataCompile].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [createMcpToSrg].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [genIntellijRuns].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [prepareRunClient].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [runClient].executor&quot;: &quot;Run&quot;,
-    &quot;Gradle.untitled [runData].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled/src/main/resources/assets/atla/textures/block&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.gradle&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
+    "Gradle.Build untitled.executor": "Run",
+    "Gradle.C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled [createMcpToSrg].executor": "Run",
+    "Gradle.C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled [wrapper genIntellijRuns].executor": "Run",
+    "Gradle.Download Sources.executor": "Run",
+    "Gradle.untitled [:cpw.mods.bootstraplauncher.BootstrapLauncher.main()].executor": "Run",
+    "Gradle.untitled [:prepareRunDataCompile].executor": "Run",
+    "Gradle.untitled [createMcpToSrg].executor": "Run",
+    "Gradle.untitled [genIntellijRuns].executor": "Run",
+    "Gradle.untitled [prepareRunClient].executor": "Run",
+    "Gradle.untitled [runClient].executor": "Run",
+    "Gradle.untitled [runData].executor": "Run",
+    "JAR Application.gradle-wrapper.jar.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "master",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Mr.bot1010/Documents/Folders/Mods/ATLA/untitled/src/main/resources/assets/atla/textures/block",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla\textures\block" />
@@ -130,14 +135,14 @@
       <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla\blockstates" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla\textures\block" />
+      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla\models\item" />
+      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla\items" />
       <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\data\atla\recipes\fruit_pie" />
       <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\data\atla\recipes" />
-      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources" />
-      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled\src\main\resources\assets\atla" />
-      <recent name="C:\Users\Mr.bot1010\Documents\Folders\Mods\ATLA\untitled" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.untitled [runClient]">
+  <component name="RunManager" selected="Gradle.untitled [runData]">
     <configuration name="untitled [genIntellijRuns]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -226,10 +231,15 @@
       <RunAsTest>false</RunAsTest>
       <method v="2" />
     </configuration>
+    <configuration name="gradle-wrapper.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.untitled [runClient]" />
         <item itemvalue="Gradle.untitled [runData]" />
+        <item itemvalue="JAR Application.gradle-wrapper.jar" />
+        <item itemvalue="Gradle.untitled [runClient]" />
         <item itemvalue="Gradle.untitled [genIntellijRuns]" />
         <item itemvalue="Gradle.untitled [prepareRunClient]" />
       </list>
@@ -276,8 +286,19 @@
       <option name="project" value="LOCAL" />
       <updated>1783168972742</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add ATLA mod assets including banana plant, fruit pie, and related recipes">
+      <option name="closed" value="true" />
+      <created>1783169664792</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1783169664792</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.bat" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -294,6 +315,17 @@
     <MESSAGE value="initialize ATLA mod with basic structure and configuration files" />
     <MESSAGE value="Add Bison Whistle item and Air Bending creative tab" />
     <MESSAGE value="Added datagen, and fruits" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added datagen, and fruits" />
+    <MESSAGE value="Add ATLA mod assets including banana plant, fruit pie, and related recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add ATLA mod assets including banana plant, fruit pie, and related recipes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.IllegalArgumentException" package="java.lang" />
+          <option name="timeStamp" value="1" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
