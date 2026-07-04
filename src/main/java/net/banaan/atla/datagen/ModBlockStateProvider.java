@@ -17,6 +17,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ModBlocks.BANANA_PLANT);
         blockWithItem(ModBlocks.FRUIT_PIE);
+        blockWithItem(ModBlocks.BANANA_PLANKS);
 
         stairsBlock(((StairBlock) ModBlocks.BANANA_STAIRS.get()), blockTexture(ModBlocks.BANANA_PLANKS.get()));
 
