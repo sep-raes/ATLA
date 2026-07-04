@@ -1,4 +1,15 @@
 {
   "itemGroup.atla.air_bending": "Air Bending",
-  "item.atla.bison_whistle": "Bison Whistle"
+
+  "item.atla.banana": "Banaana",
+  "item.atla.roasted_banana": "Roasted Banana",
+  "item.atla.banana_leaf": "Banana Leaf",
+  "item.atla.bison_whistle": "Bison Whistle",
+  "item.atla.bison_saddle": "Bison Saddle",
+  "item.atla.glider_staff": "Glider Staff",
+
+  "tooltip.atla.glider_staff_1": "Level 1",
+
+  "block.atla.fruit_pie": "Fruit Pie",
+  "block.atla.banana_plant": "Banana Plant"
   }
