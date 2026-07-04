@@ -37,7 +37,9 @@ public class Atla {
 
     public Atla() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        System.out.println("doodoogaysex");
 
+        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
         ModWoodTypes.register();
 
