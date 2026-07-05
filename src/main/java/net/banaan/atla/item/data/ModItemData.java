@@ -11,12 +11,12 @@ public class ModItemData {
     }
 
     public static int getTag(ItemStack stack, String key) {
-        if (stack.hasTag()) {
-            CompoundTag tag = stack.getTag();
-            if (tag.contains(key)) {
-                return tag.getInt(key);
+        if (stack.hasTag() && stack.getTag().contains(key)) {
+            net.minecraft.nbt.Tag tag = stack.getTag().get(key);
+            if (tag instanceof net.minecraft.nbt.NumericTag numericTag) {
+                return numericTag.getAsInt(); // Handles Bytes, Shorts, and Ints perfectly
             }
         }
-        return -1;
+        return 0;
     }
 }
