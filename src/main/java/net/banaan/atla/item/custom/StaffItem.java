@@ -1,12 +1,14 @@
 package net.banaan.atla.item.custom;
 
+import net.banaan.atla.item.data.ModItemData;
+import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.Style;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
-import net.minecraftforge.client.event.RenderTooltipEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -20,6 +22,4 @@ public class StaffItem extends Item {
         componentList.add(Component.translatable("tooltip.atla.glider_staff_1"));
         super.appendHoverText(itemStack, level, componentList, tooltipFlag);
     }
-
-
 }

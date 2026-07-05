@@ -4,7 +4,10 @@ import com.mojang.logging.LogUtils;
 import net.banaan.atla.block.ModBlocks;
 import net.banaan.atla.category.ModCategory;
 import net.banaan.atla.item.ModItems;
+import net.banaan.atla.item.data.ModItemData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -29,7 +32,7 @@ import org.slf4j.Logger;
 public class Atla {
 
     public static final String MODID = "atla";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
 
 
@@ -51,7 +54,6 @@ public class Atla {
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
-        // Some common setup code
         LOGGER.info("HELLO FROM COMMON SETUP");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
 
@@ -60,6 +62,21 @@ public class Atla {
         LOGGER.info(Config.magicNumberIntroduction + Config.magicNumber);
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
+
+        event.enqueueWork(() -> {
+            ItemProperties.register(ModItems.GLIDER_STAFF.get(),
+                    new ResourceLocation("atla", "glider_level"),
+                    (stack, level, entity, seed) -> {
+                        if (stack.hasTag() && stack.getTag().contains("gliderLevel")) {
+
+                            int levelValue = ((net.minecraft.nbt.NumericTag) stack.getTag().get("gliderLevel")).getAsInt();
+
+                            if (levelValue == 2) { return 2.0F; }
+                        }
+                        return 1.0F;
+                    });
+        });
+
     }
 
     // Add the example block item to the building blocks tab
@@ -84,5 +101,7 @@ public class Atla {
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
+
+
     }
 }
