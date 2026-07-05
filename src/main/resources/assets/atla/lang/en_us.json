@@ -11,5 +11,22 @@
   "tooltip.atla.glider_staff_1": "Level 1",
 
   "block.atla.fruit_pie": "Fruit Pie",
-  "block.atla.banana_plant": "Banana Plant"
-  }
+
+  "block.atla.banana_log": "Banana Log",
+  "block.atla.stripped_banana_log": "Stripped Banana Log",
+  "block.atla.banana_wood": "Banana Wood",
+  "block.atla.stripped_banana_wood": "Stripped Banana Wood",
+
+  "block.atla.banana_planks": "Banana Planks",
+  "block.atla.banana_stairs": "Banana Stairs",
+  "block.atla.banana_slab": "Banana Slab",
+  "block.atla.banana_trapdoor": "Banana Trapdoor",
+  "block.atla.banana_door": "Banana Door",
+  "block.atla.banana_fence": "Banana Fence",
+  "block.atla.banana_fence_gate": "Banana Fence Gate",
+  "block.atla.banana_pressure_plate": "Banana Pressure Plate",
+  "block.atla.banana_button": "Banana Button",
+  "block.atla.banana_leaves": "Banana Leaves"
+
+
+}

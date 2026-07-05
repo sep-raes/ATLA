@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "atla:block/stripped_banana_wood_top",
+    "side": "atla:block/stripped_banana_wood"
+  }
+}

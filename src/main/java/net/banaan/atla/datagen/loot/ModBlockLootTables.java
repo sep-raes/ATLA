@@ -32,6 +32,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_BANANA_LOG.get());
         this.dropSelf(ModBlocks.BANANA_WOOD.get());
         this.dropSelf(ModBlocks.STRIPPED_BANANA_WOOD.get());
+
         this.dropSelf(ModBlocks.BANANA_PLANKS.get());
         this.dropSelf(ModBlocks.BANANA_STAIRS.get());
 
