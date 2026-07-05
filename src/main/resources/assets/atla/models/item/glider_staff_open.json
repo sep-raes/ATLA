@@ -2,17 +2,11 @@
   "parent": "minecraft:item/handheld",
   "loader": "forge:separate_transforms",
   "base": {
-    "parent": "atla:item/glider_staff_3d"
+    "parent": "atla:item/glider_staff_3d_open"
   },
   "perspectives": {
     "gui": { "parent": "atla:item/glider_staff_2d" },
     "ground": { "parent": "atla:item/glider_staff_2d" },
     "fixed": { "parent": "atla:item/glider_staff_2d" }
-  },
-  "overrides": [
-    {
-      "predicate": { "atla:glider_level": 2.0 },
-      "model": "atla:item/glider_staff_open"
-    }
-  ]
+  }
 }
