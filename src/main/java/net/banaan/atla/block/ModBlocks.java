@@ -4,6 +4,7 @@ import net.banaan.atla.block.custom.FruitPieBlock;
 import net.banaan.atla.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
@@ -78,10 +79,13 @@ public class ModBlocks {
                     .Properties.copy(Blocks.SPRUCE_TRAPDOOR),
                     BlockSetType.SPRUCE));
 
-    public static final RegistryObject<Block> BANANA_DOOR = registerBlock("banana_door",
+    public static final RegistryObject<Block> BANANA_DOOR = BLOCKS.register("banana_door",
             () -> new DoorBlock(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_DOOR),
                     BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Item> BANANA_DOOR_ITEM = ITEMS.register("banana_door",
+            () -> new DoubleHighBlockItem(BANANA_DOOR.get(), new Item.Properties()));
 
     public static final RegistryObject<Block> BANANA_FENCE = registerBlock("banana_fence",
             () -> new FenceBlock(BlockBehaviour

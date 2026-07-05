@@ -1,6 +1,19 @@
 {
-  "parent": "atla:block/fruit_pie",
-  "textures": {
-    "all": "atla:block/fruit_pie"
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "atla:item/fruit_pie_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "atla:item/fruit_pie_2d"
+    },
+    "ground": {
+      "parent": "atla:item/fruit_pie_2d"
+    },
+    "fixed": {
+      "parent": "atla:item/fruit_pie_2d"
+    }
   }
 }
+
