@@ -31,6 +31,7 @@ public class ModCategory {
                         output.accept(BANANA_PLANT.get());
                         output.accept(GLIDER_STAFF.get());
                         output.accept(BISON_SADDLE.get());
+                        output.accept(HOOK_SWORD.get());
 
                         output.accept(BANANA_LOG.get());
                         output.accept(BANANA_PLANKS.get());

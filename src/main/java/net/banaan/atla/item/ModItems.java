@@ -5,6 +5,9 @@ import net.banaan.atla.item.custom.SaddleItem;
 import net.banaan.atla.item.custom.StaffItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -44,6 +47,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> BISON_SADDLE = ITEMS.register("bison_saddle",
             () -> new SaddleItem(new Item.Properties()));
+
+    public static final RegistryObject<Item> HOOK_SWORD = ITEMS.register("hook_sword",
+            () -> new SwordItem(Tiers.IRON, 3, 1, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
