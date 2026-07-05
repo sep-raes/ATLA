@@ -27,7 +27,9 @@
   "block.atla.banana_fence_gate": "Banana Fence Gate",
   "block.atla.banana_pressure_plate": "Banana Pressure Plate",
   "block.atla.banana_button": "Banana Button",
-  "block.atla.banana_leaves": "Banana Leaves"
+  "block.atla.banana_leaves": "Banana Leaves",
+
+  "chat.atla.glider_level_right_click": "Opened Glider Staff"
 
 
 }
