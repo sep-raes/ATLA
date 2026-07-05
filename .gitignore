@@ -5,7 +5,7 @@ build
 gradlew
 gradlew.bat
 gradle
-
+src/generated/resources/.cache
 # Ignore Gradle GUI config
 gradle-app.setting
 
