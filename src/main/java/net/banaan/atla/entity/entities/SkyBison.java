@@ -250,9 +250,10 @@ public class SkyBison<T extends Entity> extends HierarchicalModel<T> {
 		this.root().getAllParts().forEach(ModelPart::resetPose);
 		this.applyHeadRotation(netHeadYaw, headPitch, ageInTicks);
 
-		// Map directly to your custom tracking state container
-		this.animate(((SkyBisonEntity) entity).walkingAnimationState, ModAnimationDefinitions.WALK, ageInTicks, 1f);
-		this.animate(((SkyBisonEntity) entity).idleAnimationState, ModAnimationDefinitions.IDLE, ageInTicks, 1f);
+		SkyBisonEntity bison = (SkyBisonEntity) entity;
+		this.animate(bison.walkingAnimationState, ModAnimationDefinitions.WALK, ageInTicks, 1f);
+		this.animate(bison.idleAnimationState, ModAnimationDefinitions.IDLE, ageInTicks, 1f);
+		this.animate(bison.sittingAnimationState, ModAnimationDefinitions.SIT, ageInTicks, 1f);
 	}
 
 	private void applyHeadRotation(float netHeadYaw, float headPitch, float agaInTicks) {
