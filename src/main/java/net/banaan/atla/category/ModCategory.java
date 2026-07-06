@@ -30,7 +30,6 @@ public class ModCategory {
                         output.accept(BANANA_PLANT.get());
                         output.accept(GLIDER_STAFF.get());
                         output.accept(BISON_SADDLE.get());
-                        output.accept(HOOK_SWORD.get());
                         output.accept(SKY_BISON_SPAWN_EGG.get());
 
                         output.accept(BANANA_LOG.get());
@@ -51,6 +50,17 @@ public class ModCategory {
 
 
 
+                    })
+                    .build());
+
+    public static final RegistryObject<CreativeModeTab> EARTH_BENDING = CREATIVE_TAB.register("earth_bending",
+            () -> CreativeModeTab.builder()
+                    .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
+                    .icon(() -> HOOK_SWORD.get().getDefaultInstance())
+                    .title(Component.translatable("itemGroup.atla.earth_bending"))
+                    .displayItems((itemDisplayParameters, output) -> {
+
+                        output.accept(HOOK_SWORD.get());
                     })
                     .build());
 
