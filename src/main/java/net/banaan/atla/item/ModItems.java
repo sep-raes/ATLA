@@ -1,13 +1,14 @@
 package net.banaan.atla.item;
 
+import net.banaan.atla.entity.ModEntities;
 import net.banaan.atla.item.custom.FuelItem;
 import net.banaan.atla.item.custom.SaddleItem;
 import net.banaan.atla.item.custom.StaffItem;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;
+import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -50,6 +51,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> HOOK_SWORD = ITEMS.register("hook_sword",
             () -> new SwordItem(Tiers.IRON, 3, 1, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKY_BISON_SPAWN_EGG = ITEMS.register("sky_bison_spawn_egg",
+            () -> new ForgeSpawnEggItem(ModEntities.SKY_BISON, 0x7e9680, 0xc5d1c5, new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -3,9 +3,12 @@ package net.banaan.atla;
 import com.mojang.logging.LogUtils;
 import net.banaan.atla.block.ModBlocks;
 import net.banaan.atla.category.ModCategory;
+import net.banaan.atla.entity.ModEntities;
+import net.banaan.atla.entity.client.SkyBisonRenderer;
 import net.banaan.atla.item.ModItems;
 import net.banaan.atla.item.data.ModItemData;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -45,6 +48,7 @@ public class Atla {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModCategory.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         MinecraftForge.EVENT_BUS.register(this);
 
@@ -100,6 +104,7 @@ public class Atla {
             // Some client setup code
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
+            EntityRenderers.register(ModEntities.SKY_BISON.get(), SkyBisonRenderer::new);
         }
 
 

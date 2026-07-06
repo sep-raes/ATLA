@@ -33,9 +33,12 @@ public class ModBlocks {
 
 
 
-    public static final RegistryObject<Block> FRUIT_PIE = registerBlock("fruit_pie",
+    public static final RegistryObject<Block> FRUIT_PIE = BLOCKS.register("fruit_pie",
             () -> new FruitPieBlock(BlockBehaviour
                     .Properties.copy(Blocks.CAKE)));
+
+    public static final RegistryObject<Item> FRUIT_PIE_ITEM = ITEMS.register("fruit_pie",
+            () -> new BlockItem(FRUIT_PIE.get(), new Item.Properties()));
 
 
     public static final RegistryObject<Block> BANANA_PLANT = registerBlock("banana_plant",
