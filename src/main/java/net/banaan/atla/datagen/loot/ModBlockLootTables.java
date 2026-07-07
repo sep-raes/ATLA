@@ -63,6 +63,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.BANYAN_FENCE_GATE.get());
         this.dropSelf(ModBlocks.BANYAN_PRESSURE_PLATE.get());
         this.dropSelf(ModBlocks.BANYAN_BUTTON.get());
+        this.dropSelf(ModBlocks.BANYAN_LEAVES.get());
 
         this.add(ModBlocks.BANANA_PLANT.get(),
                 block -> createFortuneDrop(ModBlocks.BANANA_PLANT.get(), ModItems.BANANA.get()));

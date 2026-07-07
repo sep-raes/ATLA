@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-07T19:58:19.8321078	Loot Tables
+// 1.20.1	2026-07-07T20:31:48.1497441	Loot Tables
 67464a5eb61ef7f2c7c32a927d94051196b88868 data/atla/loot_tables/blocks/banana_button.json
 9ad5e6f0bf1c355f76885e27bf1f0504c103df3f data/atla/loot_tables/blocks/banana_door.json
 4eb007bae4fa94d872ba96a350afe1e917ae4a88 data/atla/loot_tables/blocks/banana_fence.json
@@ -15,6 +15,7 @@ e1ead54d94c16de74ff9dd492a0d30c6df7cad9b data/atla/loot_tables/blocks/banana_woo
 4a9ef2bb414f372bb7aa33b66c6e93f094c4188f data/atla/loot_tables/blocks/banyan_button.json
 9dc383520579cd24c5913ecb2cfd9a051c9a33c6 data/atla/loot_tables/blocks/banyan_fence.json
 f83a802f078686f6288d0e406f5c5f3901bf9b3f data/atla/loot_tables/blocks/banyan_fence_gate.json
+1c58ae1eca6eb76f05c4c3aadd876276982c5091 data/atla/loot_tables/blocks/banyan_leaves.json
 0cd77066c585cf465b6f59ee6dbcb801c16e2970 data/atla/loot_tables/blocks/banyan_log.json
 42433d2593b954a78f9364e343d0677dc1f9afec data/atla/loot_tables/blocks/banyan_planks.json
 0f70eafac4244ab310c90cb2fddebb2e4fdd552c data/atla/loot_tables/blocks/banyan_pressure_plate.json

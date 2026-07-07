@@ -162,6 +162,10 @@ public class ModBlocks {
             () -> new ButtonBlock(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE),
                     BlockSetType.SPRUCE, 10,true));
+
+    public static final RegistryObject<Block> BANYAN_LEAVES = registerBlock("banyan_leaves",
+            () -> new LeavesBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_LEAVES)));
     /*
     public static final RegistryObject<SignBlock> BANANA_SIGN = BLOCKS.register("banana_sign",
             () -> new SignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), WoodType.SPRUCE) {

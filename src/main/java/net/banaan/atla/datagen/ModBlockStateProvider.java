@@ -19,6 +19,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.FRUIT_PIE.get());
         blockWithItem(ModBlocks.BANANA_PLANKS);
         simpleBlock(ModBlocks.BANANA_LEAVES.get());
+        simpleBlock(ModBlocks.BANYAN_LEAVES.get());
         blockWithItem(ModBlocks.BANYAN_PLANKS);
 
 

@@ -72,7 +72,7 @@ public class ModCategory {
                         output.accept(BANYAN_FENCE_GATE.get());
                         output.accept(BANYAN_PRESSURE_PLATE.get());
                         output.accept(BANYAN_BUTTON.get());
-
+                        output.accept(BANYAN_LEAVES.get());
                     })
                     .build());
 
