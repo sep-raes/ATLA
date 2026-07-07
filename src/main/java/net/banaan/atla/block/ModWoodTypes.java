@@ -12,6 +12,14 @@ public class ModWoodTypes {
             new WoodType("atla:banana", BANANA_SET)
     );
 
+    public static final BlockSetType BANYAN_SET = BlockSetType.register(
+            new BlockSetType("atla:banyan")
+    );
+
+    public static final WoodType BANYAN_WOOD_TYPE = WoodType.register(
+            new WoodType("atla:banyan", BANYAN_SET)
+    );
+
     public static void register() {
         // called once during mod init to force class-load / registration
     }

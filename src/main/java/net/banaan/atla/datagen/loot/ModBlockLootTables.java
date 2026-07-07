@@ -17,6 +17,7 @@ import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -48,6 +49,20 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //this.dropSelf(ModBlocks.BANANA_SIGN.get());
         //this.dropSelf(ModBlocks.WALL_BANANA_SIGN.get());
 
+
+        this.dropSelf(ModBlocks.BANYAN_PLANKS.get());
+        this.dropSelf(ModBlocks.BANYAN_LOG.get());
+        this.dropSelf(ModBlocks.BANYAN_WOOD.get());
+        this.dropSelf(ModBlocks.STRIPPED_BANYAN_LOG.get());
+        this.dropSelf(ModBlocks.STRIPPED_BANYAN_WOOD.get());
+        this.dropSelf(ModBlocks.BANYAN_STAIRS.get());
+
+        this.add(ModBlocks.BANYAN_SLAB.get(), block -> createSlabDrop(ModBlocks.BANYAN_SLAB.get()));
+
+        this.dropSelf(ModBlocks.BANYAN_FENCE.get());
+        this.dropSelf(ModBlocks.BANYAN_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.BANYAN_PRESSURE_PLATE.get());
+        this.dropSelf(ModBlocks.BANYAN_BUTTON.get());
 
         this.add(ModBlocks.BANANA_PLANT.get(),
                 block -> createFortuneDrop(ModBlocks.BANANA_PLANT.get(), ModItems.BANANA.get()));

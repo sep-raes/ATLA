@@ -61,6 +61,18 @@ public class ModCategory {
                     .displayItems((itemDisplayParameters, output) -> {
 
                         output.accept(HOOK_SWORD.get());
+                        output.accept(BANYAN_PLANKS.get());
+                        output.accept(BANYAN_LOG.get());
+                        output.accept(STRIPPED_BANYAN_LOG.get());
+                        output.accept(BANYAN_STAIRS.get());
+                        output.accept(BANYAN_WOOD.get());
+                        output.accept(STRIPPED_BANYAN_WOOD.get());
+                        output.accept(BANYAN_SLAB.get());
+                        output.accept(BANYAN_FENCE.get());
+                        output.accept(BANYAN_FENCE_GATE.get());
+                        output.accept(BANYAN_PRESSURE_PLATE.get());
+                        output.accept(BANYAN_BUTTON.get());
+
                     })
                     .build());
 

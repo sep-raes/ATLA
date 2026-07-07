@@ -30,6 +30,18 @@
   "block.atla.banana_button": "Banana Button",
   "block.atla.banana_leaves": "Banana Leaves",
 
+  "block.atla.banyan_planks": "Banyan Planks",
+  "block.atla.banyan_log": "Banyan Log",
+  "block.atla.stripped_banyan_log": "Stripped Banyan Log",
+  "block.atla.banyan_stairs": "Banyan stairs",
+  "block.atla.banyan_wood": "Banyan Wood",
+  "block.atla.stripped_banyan_wood": "Stripped Banyan Wood",
+  "block.atla.banyan_slab": "Banyan Slab",
+  "block.atla.banyan_fence": "Banyan Fence",
+  "block.atla.banyan_fence_gate": "Banyan Fence Gate",
+  "block.atla.banyan_pressure_plate": "Banyan Pressure Plate",
+  "block.atla.banyan_button": "Banyan Button",
+
   "chat.atla.glider_level_right_click": "Opened Glider Staff"
 
 

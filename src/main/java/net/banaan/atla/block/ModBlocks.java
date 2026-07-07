@@ -113,6 +113,55 @@ public class ModBlocks {
     public static final RegistryObject<Block> BANANA_LEAVES = registerBlock("banana_leaves",
             () -> new LeavesBlock(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE)));
+
+    public static final RegistryObject<Block> BANYAN_PLANKS = registerBlock("banyan_planks",
+            () -> new Block(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_PLANKS)));
+
+    public static final RegistryObject<Block> BANYAN_LOG = registerBlock("banyan_log",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_LOG)));
+
+    public static final RegistryObject<Block> STRIPPED_BANYAN_LOG = registerBlock("stripped_banyan_log",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.STRIPPED_SPRUCE_LOG)));
+
+    public static final RegistryObject<Block> BANYAN_STAIRS = registerBlock("banyan_stairs",
+            () -> new StairBlock(
+                    BANYAN_PLANKS.get().defaultBlockState(),
+                    BlockBehaviour.Properties.copy(Blocks.SPRUCE_STAIRS)));
+
+    public static final RegistryObject<Block> BANYAN_WOOD = registerBlock("banyan_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_WOOD)));
+
+    public static final RegistryObject<Block> STRIPPED_BANYAN_WOOD = registerBlock("stripped_banyan_wood",
+            () -> new RotatedPillarBlock(BlockBehaviour
+                    .Properties.copy(Blocks.STRIPPED_SPRUCE_WOOD)));
+
+    public static final RegistryObject<Block> BANYAN_SLAB = registerBlock("banyan_slab",
+            () -> new SlabBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_SLAB)));
+
+    public static final RegistryObject<Block> BANYAN_FENCE = registerBlock("banyan_fence",
+            () -> new FenceBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_FENCE)));
+
+    public static final RegistryObject<Block> BANYAN_FENCE_GATE = registerBlock("banyan_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_FENCE_GATE),
+                    WoodType.SPRUCE));
+
+    public static final RegistryObject<Block> BANYAN_PRESSURE_PLATE = registerBlock("banyan_pressure_plate",
+            () -> new PressurePlateBlock(
+                    PressurePlateBlock.Sensitivity.EVERYTHING,
+                    BlockBehaviour.Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Block> BANYAN_BUTTON = registerBlock("banyan_button",
+            () -> new ButtonBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_PRESSURE_PLATE),
+                    BlockSetType.SPRUCE, 10,true));
     /*
     public static final RegistryObject<SignBlock> BANANA_SIGN = BLOCKS.register("banana_sign",
             () -> new SignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), WoodType.SPRUCE) {

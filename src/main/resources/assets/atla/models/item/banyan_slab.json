@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/slab",
+  "textures": {
+    "bottom": "atla:block/banyan_planks",
+    "top": "atla:block/banyan_planks",
+    "side": "atla:block/banyan_planks"
+  }
+}
