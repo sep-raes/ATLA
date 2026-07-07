@@ -54,6 +54,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         doorBlockWithRenderType(((DoorBlock) ModBlocks.BANANA_DOOR.get()), modLoc("block/banana_door_bottom"), modLoc("block/banana_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BANANA_TRAPDOOR.get()), modLoc("block/banana_trapdoor"), true, "cutout");
 
+        doorBlockWithRenderType(((DoorBlock) ModBlocks.BANYAN_DOOR.get()), modLoc("block/banyan_door_bottom"), modLoc("block/banyan_door_top"), "cutout");
+        trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BANYAN_TRAPDOOR.get()), modLoc("block/banyan_trapdoor"), true, "cutout");
+
 
     }
 

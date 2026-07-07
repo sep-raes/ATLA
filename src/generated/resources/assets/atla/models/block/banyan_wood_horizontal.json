@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column_horizontal",
+  "textures": {
+    "end": "atla:block/banyan_wood_top",
+    "side": "atla:block/banyan_wood"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "atla:block/banyan_slab"
+    },
+    "type=double": {
+      "model": "atla:block/banyan_planks"
+    },
+    "type=top": {
+      "model": "atla:block/banyan_slab_top"
+    }
+  }
+}

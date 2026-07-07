@@ -56,6 +56,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.STRIPPED_BANYAN_LOG.get());
         this.dropSelf(ModBlocks.STRIPPED_BANYAN_WOOD.get());
         this.dropSelf(ModBlocks.BANYAN_STAIRS.get());
+        this.dropSelf(ModBlocks.BANYAN_DOOR.get());
+        this.dropSelf(ModBlocks.BANYAN_TRAPDOOR.get());
 
         this.add(ModBlocks.BANYAN_SLAB.get(), block -> createSlabDrop(ModBlocks.BANYAN_SLAB.get()));
 

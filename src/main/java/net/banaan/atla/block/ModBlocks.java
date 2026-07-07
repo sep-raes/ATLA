@@ -2,26 +2,18 @@ package net.banaan.atla.block;
 
 import net.banaan.atla.block.custom.FruitPieBlock;
 import net.banaan.atla.item.ModItems;
-import net.minecraft.core.BlockPos;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockSetType;
 import net.minecraft.world.level.block.state.properties.WoodType;
-import net.minecraft.world.level.material.FluidState;
-import net.minecraft.world.level.material.Fluids;
-import net.minecraftforge.common.Tags;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.awt.*;
 import java.util.function.Supplier;
 
 import static net.banaan.atla.Atla.MODID;
@@ -166,6 +158,19 @@ public class ModBlocks {
     public static final RegistryObject<Block> BANYAN_LEAVES = registerBlock("banyan_leaves",
             () -> new LeavesBlock(BlockBehaviour
                     .Properties.copy(Blocks.SPRUCE_LEAVES)));
+
+    public static final RegistryObject<Block> BANYAN_TRAPDOOR = registerBlock("banyan_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_TRAPDOOR),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Block> BANYAN_DOOR = BLOCKS.register("banyan_door",
+            () -> new DoorBlock(BlockBehaviour
+                    .Properties.copy(Blocks.SPRUCE_DOOR),
+                    BlockSetType.SPRUCE));
+
+    public static final RegistryObject<Item> BANYAN_DOOR_ITEM = ITEMS.register("banyan_door",
+            () -> new DoubleHighBlockItem(BANYAN_DOOR.get(), new Item.Properties()));
     /*
     public static final RegistryObject<SignBlock> BANANA_SIGN = BLOCKS.register("banana_sign",
             () -> new SignBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_SIGN), WoodType.SPRUCE) {

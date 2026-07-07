@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "atla:block/banyan_log_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "atla:block/banyan_log"
+    },
+    "axis=z": {
+      "model": "atla:block/banyan_log_horizontal",
+      "x": 90
+    }
+  }
+}
