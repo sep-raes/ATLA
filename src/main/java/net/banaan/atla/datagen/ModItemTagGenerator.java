@@ -1,6 +1,7 @@
 package net.banaan.atla.datagen;
 
 import net.banaan.atla.Atla;
+import net.banaan.atla.item.ModItems;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -17,6 +18,18 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-
+        this.tag(ModItemTags.BISON_SADDLES)
+                .add(ModItems.OAK_BISON_SADDLE.get())
+                .add(ModItems.SPRUCE_BISON_SADDLE.get())
+                .add(ModItems.BIRCH_BISON_SADDLE.get())
+                .add(ModItems.JUNGLE_BISON_SADDLE.get())
+                .add(ModItems.ACACIA_BISON_SADDLE.get())
+                .add(ModItems.DARK_OAK_BISON_SADDLE.get())
+                .add(ModItems.MANGROVE_BISON_SADDLE.get())
+                .add(ModItems.CHERRY_BISON_SADDLE.get())
+                .add(ModItems.CRIMSON_BISON_SADDLE.get())
+                .add(ModItems.WARPED_BISON_SADDLE.get())
+                .add(ModItems.BANANA_BISON_SADDLE.get())
+                .add(ModItems.BANYAN_BISON_SADDLE.get());
     }
 }

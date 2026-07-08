@@ -30,8 +30,6 @@ public abstract class HumanoidModelMixin<T extends LivingEntity> {
 
     @Shadow @Final public ModelPart leftLeg;
 
-    @Shadow protected abstract void poseLeftArm(T p_102879_);
-
     private static final HashMap<UUID, Float> lastYaw = new HashMap<>();
     private static final HashMap<UUID, Float> currentRoll = new HashMap<>();
 
@@ -40,9 +38,9 @@ public abstract class HumanoidModelMixin<T extends LivingEntity> {
         if (entity instanceof Player player) {
 
             if (!GlidePhysics.isValidGlidePose(player)) {
-                rightArm.resetPose();
-                leftArm.resetPose();
-                body.resetPose();
+                rightArm.yScale = 1f;
+                leftArm.yScale = 1f;
+                return;
             };
 
             boolean state = GliderStaffHandler.getToggle(player.getUUID());
@@ -79,7 +77,6 @@ public abstract class HumanoidModelMixin<T extends LivingEntity> {
             rightLeg.setPos(rightLeg.x, rightLeg.y - 0.8F, rightLeg.z + 3F);
             leftLeg.setPos(leftLeg.x, leftLeg.y - 0.8F, leftLeg.z + 3F);
 
-            // --- Banking roll based on turn rate ---
             UUID uuid = player.getUUID();
             float yaw = player.getYRot();
             float prevYaw = lastYaw.getOrDefault(uuid, yaw);

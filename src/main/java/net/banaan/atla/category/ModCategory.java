@@ -29,7 +29,6 @@ public class ModCategory {
                         output.accept(BANANA_LEAF.get());
                         output.accept(BANANA_PLANT.get());
                         output.accept(GLIDER_STAFF.get());
-                        output.accept(BISON_SADDLE.get());
                         output.accept(SKY_BISON_SPAWN_EGG.get());
 
                         output.accept(BANANA_LOG.get());
@@ -47,6 +46,21 @@ public class ModCategory {
                         output.accept(STRIPPED_BANANA_WOOD.get());
                         output.accept(BANANA_LEAVES.get());
                         //output.accept(new ItemStack(BANANA_SIGN.get(), 1));
+
+
+                        output.accept(OAK_BISON_SADDLE.get());
+                        output.accept(SPRUCE_BISON_SADDLE.get());
+                        output.accept(BIRCH_BISON_SADDLE.get());
+                        output.accept(JUNGLE_BISON_SADDLE.get());
+                        output.accept(DARK_OAK_BISON_SADDLE.get());
+                        output.accept(ACACIA_BISON_SADDLE.get());
+                        output.accept(MANGROVE_BISON_SADDLE.get());
+                        output.accept(CHERRY_BISON_SADDLE.get());
+                        output.accept(CRIMSON_BISON_SADDLE.get());
+                        output.accept(WARPED_BISON_SADDLE.get());
+                        output.accept(BANANA_BISON_SADDLE.get());
+                        output.accept(BANYAN_BISON_SADDLE.get());
+
 
 
 
