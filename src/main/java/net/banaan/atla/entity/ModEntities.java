@@ -1,6 +1,7 @@
 package net.banaan.atla.entity;
 
 import net.banaan.atla.Atla;
+import net.banaan.atla.entity.entities.BoomerangProjectileEntity;
 import net.banaan.atla.entity.entities.SkyBisonEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -17,6 +18,12 @@ public class ModEntities {
                     .of(SkyBisonEntity::new, MobCategory.CREATURE)
                     .sized(2.5f, 2.5f)
                     .build("sky_bison"));
+
+    public static final RegistryObject<EntityType<BoomerangProjectileEntity>> BOOMERANG_PROJECTILE = ENTITY_TYPES.register("boomerang_projectile",
+            () -> EntityType.Builder
+                    .<BoomerangProjectileEntity>of(BoomerangProjectileEntity::new, MobCategory.MISC)
+                    .sized(0.5f, 0.5f)
+                    .build("boomerang_projectile"));
 
     public static void register(IEventBus eventBus) {
         ENTITY_TYPES.register(eventBus);

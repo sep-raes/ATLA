@@ -7,7 +7,7 @@ import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
 
 public class GlidePhysics {
-    private static final float MAX_SPEED = 3;
+    private static final float MAX_SPEED = 2;
 
     public static void applyGlideMotion(Player player, int airTicks) {
 
