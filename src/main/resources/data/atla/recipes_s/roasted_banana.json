@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "experience": 0.34,
-  "cookingtime": 200,
-  "ingredient": {
-    "item": "atla:banana"
-  },
-  "result": "atla:roasted_banana"
-}

@@ -6,7 +6,7 @@ import net.banaan.atla.category.ModCategory;
 import net.banaan.atla.entity.ModEntities;
 import net.banaan.atla.entity.client.SkyBisonRenderer;
 import net.banaan.atla.item.ModItems;
-import net.banaan.atla.item.data.ModItemData;
+import net.banaan.atla.util.GlideData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.item.ItemProperties;
@@ -28,6 +28,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.ForgeRegistries;
 import org.slf4j.Logger;
 
+import java.util.UUID;
 
 
 @Mod(Atla.MODID)
@@ -53,6 +54,8 @@ public class Atla {
         MinecraftForge.EVENT_BUS.register(this);
 
         modEventBus.addListener(this::addCreative);
+        GlideData.addUUID(UUID.randomUUID());
+
 
         ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, Config.SPEC);
     }
