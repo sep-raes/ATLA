@@ -9,6 +9,7 @@ import net.banaan.atla.item.ModItems;
 import net.banaan.atla.util.GlideData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
+import net.minecraft.client.renderer.entity.ThrownItemRenderer;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -108,6 +109,7 @@ public class Atla {
             LOGGER.info("HELLO FROM CLIENT SETUP");
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
             EntityRenderers.register(ModEntities.SKY_BISON.get(), SkyBisonRenderer::new);
+            EntityRenderers.register(ModEntities.BOOMERANG_PROJECTILE.get(), ThrownItemRenderer::new);
         }
 
 

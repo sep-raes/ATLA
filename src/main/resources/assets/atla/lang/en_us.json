@@ -6,9 +6,21 @@
   "item.atla.roasted_banana": "Roasted Banana",
   "item.atla.banana_leaf": "Banana Leaf",
   "item.atla.bison_whistle": "Bison Whistle",
-  "item.atla.bison_saddle": "Bison Saddle",
   "item.atla.glider_staff": "Glider Staff",
   "item.atla.hook_sword": "Hook Sword",
+
+  "item.atla.oak_bison_saddle": "Oak Bison Saddle",
+  "item.atla.spruce_bison_saddle": "Spruce Bison Saddle",
+  "item.atla.birch_bison_saddle": "Birch Bison Saddle",
+  "item.atla.jungle_bison_saddle": "Jungle Bison Saddle",
+  "item.atla.acacia_bison_saddle": "Acacia Bison Saddle",
+  "item.atla.dark_oak_bison_saddle": "Dark Oak Bison Saddle",
+  "item.atla.mangrove_bison_saddle": "Mangrove Bison Saddle",
+  "item.atla.cherry_bison_saddle": "Cherry Bison Saddle",
+  "item.atla.crimson_bison_saddle": "Crimson Bison Saddle",
+  "item.atla.warped_bison_saddle": "Warped Bison Saddle",
+  "item.atla.banana_bison_saddle": "Banana Bison Saddle",
+  "item.atla.banyan_bison_saddle": "Banyan Bison Saddle",
 
   "tooltip.atla.glider_staff_1": "Level 1",
 

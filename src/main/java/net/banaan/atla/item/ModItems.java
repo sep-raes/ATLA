@@ -1,6 +1,7 @@
 package net.banaan.atla.item;
 
 import net.banaan.atla.entity.ModEntities;
+import net.banaan.atla.item.custom.BoomerangItem;
 import net.banaan.atla.item.custom.FuelItem;
 import net.banaan.atla.item.custom.SaddleItem;
 import net.banaan.atla.item.custom.StaffItem;
@@ -79,6 +80,12 @@ public class ModItems {
             () -> new SaddleItem(new Item.Properties().stacksTo(1)));
     public static final RegistryObject<Item> BANYAN_BISON_SADDLE = ITEMS.register("banyan_bison_saddle",
             () -> new SaddleItem(new Item.Properties().stacksTo(1)));
+
+
+
+
+    public static final RegistryObject<Item> BOOMERANG = ITEMS.register("boomerang",
+            () -> new BoomerangItem(new Item.Properties().stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -1,12 +1,12 @@
 package net.banaan.atla.entity.entities;
 
 import net.banaan.atla.entity.ModEntities;
+import net.banaan.atla.item.ModItems;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.projectile.ThrowableItemProjectile;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.EntityHitResult;
 
 public class BoomerangProjectileEntity extends ThrowableItemProjectile {
@@ -24,7 +24,7 @@ public class BoomerangProjectileEntity extends ThrowableItemProjectile {
 
     @Override
     protected Item getDefaultItem() {
-        return null;
+        return ModItems.BANANA.get();
     }
 
     @Override
@@ -34,5 +34,7 @@ public class BoomerangProjectileEntity extends ThrowableItemProjectile {
        }
         super.onHitEntity(p_37259_);
     }
+
+
 }
 
