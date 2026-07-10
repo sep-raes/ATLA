@@ -18,12 +18,12 @@ public class WanderStateGoal extends RandomStrollGoal {
 
     @Override
     public boolean canUse() {
-        return entity.getMobState() == MobState.WANDER && super.canUse();
+        return entity.getMobState() == MobState.WANDER && entity.isTame() && super.canUse();
     }
 
     @Override
     public boolean canContinueToUse() {
-        return entity.getMobState() == MobState.WANDER && super.canContinueToUse();
+        return entity.getMobState() == MobState.WANDER && entity.isTame() && super.canContinueToUse();
     }
     @Override
     public void start() {

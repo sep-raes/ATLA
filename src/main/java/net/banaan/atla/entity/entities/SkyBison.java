@@ -254,6 +254,8 @@ public class SkyBison<T extends Entity> extends HierarchicalModel<T> {
 		this.animate(bison.walkingAnimationState, ModAnimationDefinitions.WALK, ageInTicks, 1f);
 		this.animate(bison.idleAnimationState, ModAnimationDefinitions.IDLE, ageInTicks, 1f);
 		this.animate(bison.sittingAnimationState, ModAnimationDefinitions.SIT, ageInTicks, 1f);
+		this.animate(bison.flyingAnimationState, ModAnimationDefinitions.FLY, ageInTicks, 1f);
+		this.animate(bison.flyingIdleAnimationState, ModAnimationDefinitions.FLY_IDLE, ageInTicks, 1f);
 	}
 
 	private void applyHeadRotation(float netHeadYaw, float headPitch, float agaInTicks) {

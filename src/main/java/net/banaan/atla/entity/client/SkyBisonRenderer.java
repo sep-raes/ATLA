@@ -16,12 +16,29 @@ public class SkyBisonRenderer extends MobRenderer<SkyBisonEntity, SkyBison<SkyBi
         super(context, new SkyBison<>(context.bakeLayer(ModModelLayers.SKY_BISON_LAYER)), 2f);
     }
 
+
     @NotNull
     @Override
     public ResourceLocation getTextureLocation(SkyBisonEntity bisonEntity) {
-        return bisonEntity.isSaddled()
-                ? new ResourceLocation(Atla.MODID, "textures/entity/sky_bison_banana_saddle.png")
-                : new ResourceLocation(Atla.MODID, "textures/entity/sky_bison_no_sadle.png");
+        return switch (bisonEntity.getSaddleType()) {
+            case UNSADDLED -> new ResourceLocation(Atla.MODID, "textures/entity/sky_bison_no_saddle.png");
+            case OAK -> getResourceLocation("oak");
+            case SPRUCE -> getResourceLocation("spruce");
+            case BIRCH -> getResourceLocation("birch");
+            case JUNGLE -> getResourceLocation("jungle");
+            case ACACIA -> getResourceLocation("acacia");
+            case DARK_OAK -> getResourceLocation("dark_oak");
+            case MANGROVE -> getResourceLocation("mangrove");
+            case CHERRY -> getResourceLocation("cherry");
+            case CRIMSON -> getResourceLocation("crimson");
+            case WARPED -> getResourceLocation("warped");
+            case BANANA -> getResourceLocation("banana");
+            case BANYAN -> getResourceLocation("banyan");
+        };
+    }
+
+    public ResourceLocation getResourceLocation(String location) {
+        return new ResourceLocation(Atla.MODID, "textures/entity/sky_bison_" + location + "_saddle.png");
     }
 
     @Override

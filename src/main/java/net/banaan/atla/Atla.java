@@ -10,8 +10,6 @@ import net.banaan.atla.util.GlideData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
-import net.minecraft.client.renderer.item.ItemProperties;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -71,21 +69,9 @@ public class Atla {
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
 
-        event.enqueueWork(() -> {
-            ItemProperties.register(ModItems.GLIDER_STAFF.get(),
-                    new ResourceLocation("atla", "glider_level"),
-                    (stack, level, entity, seed) -> {
-                        if (stack.hasTag() && stack.getTag().contains("gliderLevel")) {
-
-                            int levelValue = ((net.minecraft.nbt.NumericTag) stack.getTag().get("gliderLevel")).getAsInt();
-
-                            if (levelValue == 2) { return 2.0F; }
-                        }
-                        return 1.0F;
-                    });
-        });
 
     }
+
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
