@@ -5,13 +5,16 @@ import net.banaan.atla.block.ModBlocks;
 import net.banaan.atla.category.ModCategory;
 import net.banaan.atla.entity.ModEntities;
 import net.banaan.atla.entity.client.SkyBisonRenderer;
+import net.banaan.atla.entity.entities.SkyBisonEntity;
 import net.banaan.atla.item.ModItems;
 import net.banaan.atla.util.GlideData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.client.renderer.entity.ThrownItemRenderer;
+import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -69,6 +72,15 @@ public class Atla {
 
         Config.items.forEach((item) -> LOGGER.info("ITEM >> {}", item.toString()));
 
+        event.enqueueWork(() -> {
+            SpawnPlacements.register(
+                    ModEntities.SKY_BISON.get(),
+                    SpawnPlacements.Type.ON_GROUND,
+                    Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
+                    SkyBisonEntity::checkSkyBisonSpawnRules
+            );
+        });
+
 
     }
 
@@ -84,6 +96,7 @@ public class Atla {
         // Do something when the server starts
         LOGGER.info("HELLO from server starting");
     }
+
 
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)

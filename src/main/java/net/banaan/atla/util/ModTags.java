@@ -14,9 +14,12 @@ public class ModTags {
 
         public static final TagKey<Block> PLANTS = tag("plants");
 
+        public static final TagKey<Block> SKY_BISON_SPAWN_ON = tag("sky_bison_spawn_on");
+
         private  static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(Atla.MODID, name));
         }
+
     }
 
     public static class Items {

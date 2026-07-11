@@ -1,4 +1,4 @@
-package net.banaan.atla.datagen;
+package net.banaan.atla.datagen.tag;
 
 import net.banaan.atla.Atla;
 import net.banaan.atla.block.ModBlocks;
@@ -6,7 +6,7 @@ import net.banaan.atla.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;
-import net.minecraftforge.common.Tags;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -28,16 +28,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                         ModBlocks.BANANA_PLANKS.get(),
                         ModBlocks.BANANA_STAIRS.get());
 
-
-
-
-        //this.tag(BlockTags.FENCES)
-        //        .add(ModBlocks.BANANA_FENCES.get());
-        //this.tag(BlockTags.FENCE_GATES)
-        //        .add(ModBlocks.BANANA_FENCE_GATE.get());
-        //this.tag(BlockTags.WALLS)
-        //        .add(ModBlocks.BANANA_WALL.get());
-
-
+        this.tag(ModTags.Blocks.SKY_BISON_SPAWN_ON)
+                .add(Blocks.GRASS_BLOCK)
+                .add(Blocks.SNOW_BLOCK)
+                .add(Blocks.STONE)
+                .add(Blocks.GRAVEL)
+                .add(Blocks.SNOW);
     }
 }

@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#atla:sky_bison_spawn_biomes",
+  "spawners": {
+    "type": "atla:sky_bison",
+    "maxCount": 5,
+    "minCount": 4,
+    "weight": 10
+  }
+}

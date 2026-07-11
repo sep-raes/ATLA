@@ -2,6 +2,9 @@ package net.banaan.atla.datagen;
 
 
 import net.banaan.atla.Atla;
+import net.banaan.atla.datagen.tag.ModBiomeTagGenerator;
+import net.banaan.atla.datagen.tag.ModBlockTagGenerator;
+import net.banaan.atla.datagen.tag.ModItemTagGenerator;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -29,5 +32,7 @@ public class DataGenerators {
         ModBlockTagGenerator blockTagGenerator = generator.addProvider(event.includeServer(),
                 new ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper));
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModBiomeTagGenerator(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModDatapackBuiltinEntriesProvider(packOutput, lookupProvider));
     }
 }

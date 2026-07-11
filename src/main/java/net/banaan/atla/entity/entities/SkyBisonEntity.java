@@ -1,15 +1,18 @@
 package net.banaan.atla.entity.entities;
 
 import net.banaan.atla.block.ModBlocks;
-import net.banaan.atla.datagen.ModItemTags;
+import net.banaan.atla.datagen.tag.ModItemTagGenerator;
 import net.banaan.atla.entity.ModEntities;
 import net.banaan.atla.entity.goals.FollowOwnerStateGoal;
 import net.banaan.atla.entity.goals.RandomStrollUntamedGoal;
+import net.banaan.atla.entity.goals.WanderFlyGoal;
 import net.banaan.atla.entity.goals.WanderStateGoal;
 import net.banaan.atla.item.ModItems;
+import net.banaan.atla.util.ModTags;
 import net.banaan.atla.util.enums.MobSaddle;
 import net.banaan.atla.util.enums.MobState;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -18,6 +21,9 @@ import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -30,6 +36,8 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.fml.util.ObfuscationReflectionHelper;
 import org.jetbrains.annotations.NotNull;
@@ -73,6 +81,20 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
     @Override
     protected float getJumpPower() {
         return 0.0F;
+    }
+
+    private static final double FLIGHT_ACTIVE_THRESHOLD_SQR = 0.0009D; // ~0.03 blocks/tick
+
+    private boolean isActivelyFlyingForward() {
+        boolean riddenFreeFlight = this.isVehicle() && this.getControllingPassenger() instanceof Player;
+        boolean tameSelfFlight = this.isTame() && this.isFlying() && !this.isVehicle();
+
+        if (riddenFreeFlight || tameSelfFlight) {
+
+            return this.hasEngagedForward;
+        }
+
+        return this.getDeltaMovement().lengthSqr() > FLIGHT_ACTIVE_THRESHOLD_SQR;
     }
 
     private boolean isMoving() {
@@ -123,7 +145,7 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
 
     public void setFlying(boolean flying) {
         this.entityData.set(DATA_FLYING, flying);
-        this.setMobState(MobState.FLYING);
+        this.setMobState(flying ? MobState.FLYING : MobState.WANDER);
         this.setNoGravity(flying);
     }
 
@@ -139,6 +161,16 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
     public void tick() {
         super.tick();
 
+        if (!this.hasSpawnPoint && !this.level().isClientSide()) {
+            this.spawnPointX = this.getX();
+            this.spawnPointZ = this.getZ();
+            this.hasSpawnPoint = true;
+        }
+
+        if (this.groundCooldown > 0) {
+            this.groundCooldown--;
+        }
+
         if (this.level().isClientSide) {
             setupAnimationStates();
 
@@ -148,19 +180,19 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
                 this.flyingAnimationState.stop();
                 this.flyingIdleAnimationState.stop();
                 this.sittingAnimationState.startIfStopped(this.tickCount);
-            } else if (this.isFlying() && !this.hasEngagedForward) {
+            } else if (this.isFlying() && !this.isActivelyFlyingForward()) {
                 this.walkingAnimationState.stop();
                 this.idleAnimationState.stop();
                 this.sittingAnimationState.stop();
                 this.flyingAnimationState.stop();
                 this.flyingIdleAnimationState.startIfStopped(this.tickCount);
-            } else if (this.isFlying() && this.hasEngagedForward) {
+            } else if (this.isFlying() && this.isActivelyFlyingForward()) {
                 this.walkingAnimationState.stop();
                 this.idleAnimationState.stop();
                 this.sittingAnimationState.stop();
                 this.flyingIdleAnimationState.stop();
                 this.flyingAnimationState.startIfStopped(this.tickCount);
-            } else if (this.isMoving()) {
+            } else if (this.isMoving() && this.onGround()) {
                 this.idleAnimationState.stop();
                 this.sittingAnimationState.stop();
                 this.flyingAnimationState.stop();
@@ -198,7 +230,8 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         this.goalSelector.addGoal(7, new WanderStateGoal(this, 1.0D, 15));
         this.goalSelector.addGoal(8, new RandomStrollUntamedGoal(this, 1.0D, 100, true));
         this.goalSelector.addGoal(9, new LookAtPlayerGoal(this, Player.class, 6.0F));
-        this.goalSelector.addGoal(10, new RandomLookAroundGoal(this));
+        this.goalSelector.addGoal(10, new WanderFlyGoal(this));
+        this.goalSelector.addGoal(11, new RandomLookAroundGoal(this));
     }
 
     // ATTRIBUTES
@@ -230,7 +263,17 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
             return InteractionResult.sidedSuccess(this.level().isClientSide);
         }
 
-        if (!this.isSaddled() && itemstack.is(ModItemTags.BISON_SADDLES) && this.isSaddleable() && this.isTame()) {
+        if (!this.isTame() && this.isFlying()) {
+            if (!this.level().isClientSide) {
+                this.forceLand = true;
+                this.groundCooldown = 1000; // 50 seconds * 20 ticks = 1000 ticks
+                // Optional: add a frustrated/startled bison sound here
+
+            }
+            return InteractionResult.sidedSuccess(this.level().isClientSide);
+        }
+
+        if (!this.isSaddled() && itemstack.is(ModItemTagGenerator.BISON_SADDLES) && this.isSaddleable() && this.isTame()) {
             setSaddle(itemstack);
             itemstack.shrink(1);
             this.equipSaddle(this.getSoundSource());
@@ -362,6 +405,9 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         tag.putInt("MobState", this.entityData.get(DATA_MOB_STATE));
         tag.putBoolean("Saddled", this.entityData.get(DATA_SADDLED));
         tag.putInt("SaddleType", this.entityData.get(DATA_SADDLE_TYPE));
+        tag.putBoolean("HasSpawnPoint", this.hasSpawnPoint);
+        tag.putDouble("SpawnPointX", this.spawnPointX);
+        tag.putDouble("SpawnPointZ", this.spawnPointZ);
     }
 
     @Override
@@ -375,6 +421,15 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         }
         if (tag.contains("SaddleType")) {
             this.entityData.set(DATA_SADDLE_TYPE, tag.getInt("SaddleType"));
+        }
+        if (tag.contains("HasSpawnPoint")) {
+            this.hasSpawnPoint = tag.getBoolean("HasSpawnPoint");
+        }
+        if (tag.contains("SpawnPointX")) {
+            this.spawnPointX = tag.getDouble("SpawnPointX");
+        }
+        if (tag.contains("SpawnPointZ")) {
+            this.spawnPointZ = tag.getDouble("SpawnPointZ");
         }
 
         this.setNoGravity(this.isFlying());
@@ -414,13 +469,12 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
     @Override
     protected Vec3 getRiddenInput(Player player, Vec3 travelVector) {
         float forward = player.zza;
-        float strafe = player.xxa;
 
         if (forward < 0.0f) {
             forward *= 0.25f;
         }
 
-        return new Vec3(strafe, 0.0, forward);
+        return new Vec3(0.0, 0.0, forward);
     }
 
     @Override
@@ -452,21 +506,27 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
             this.yHeadRot = this.yBodyRot;
 
 
-
-
-
-            flightToggleCooldown++;
             System.out.println(flightToggleCooldown);
+
+            if (flightToggleCooldown != 0) {
+                flightToggleCooldown--;
+            }
+
             if (this.isFlying()) {
                 controller.displayClientMessage(Component.translatable("Press: " + Minecraft.getInstance().options.keyLeft.getKey().getDisplayName().getString() + " when low to the ground go into walk state!"), true);
                 tickFreeFlight(controller);
                 return;
-            } else if (isAKeyDown(controller) && flightToggleCooldown > 20) {
-                flightToggleCooldown = 0;
+            } else if (isAKeyDown(controller) && flightToggleCooldown == 0) {
+                flightToggleCooldown = 20;
                 this.setFlying(true);
-                System.out.println("End of tick flying state: " + this.isFlying());
                 return;
             }
+
+
+
+
+            super.travel(travelVector);
+
             controller.displayClientMessage(Component.translatable("Press: " + Minecraft.getInstance().options.keyLeft.getKey().getDisplayName().getString() + " to go into fly state!" ), true);
             float speed = this.getRiddenSpeed(controller);
             this.setSpeed(speed);
@@ -477,7 +537,11 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         }
 
         if (this.isFlying()) {
-            tickUnriddenFlight();
+            if (this.isTame()) {
+                tickUnriddenFlight();
+            } else {
+                tickWildFlight();
+            }
             return;
         }
 
@@ -496,8 +560,8 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
             this.hasEngagedForward = false;
         }
 
-        if (isAKeyDown(controller) && isParked && flightToggleCooldown > 10) {
-            flightToggleCooldown = 0;
+        if (isAKeyDown(controller) && isParked && flightToggleCooldown == 0) {
+            flightToggleCooldown = 20;
             this.setFlying(false);
             this.setMobState(MobState.WANDER);
             return;
@@ -576,6 +640,9 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         boolean isParked = !this.level().noCollision(this.getBoundingBox().move(0, -2.0, 0));
         if (isParked) {
             this.hasEngagedForward = false;
+            this.setFlying(false);
+            this.setMobState(MobState.WANDER);
+            return;
         }
 
         if (this.hasEngagedForward) {
@@ -606,6 +673,8 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
         this.move(MoverType.SELF, this.getDeltaMovement());
     }
 
+
+
     @Override
     public boolean canJump() { return false; }
 
@@ -629,5 +698,123 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
 
     private boolean isAKeyDown(Player controller) {
         return controller.xxa > 0.0F;
+    }
+
+
+
+
+
+    //SPAWN RULES
+    public static boolean checkSkyBisonSpawnRules(EntityType<SkyBisonEntity> entityType,
+                                                  ServerLevelAccessor level,
+                                                  MobSpawnType spawnType,
+                                                  BlockPos pos,
+                                                  RandomSource random) {
+        BlockPos blockBelow = pos.below();
+
+        boolean onValidBlock = level.getBlockState(blockBelow).is(ModTags.Blocks.SKY_BISON_SPAWN_ON);
+
+        boolean isBrightEnough = isBrightEnoughToSpawn(level, pos);
+
+        boolean isHighEnough = pos.getY() >= 130;
+
+        return onValidBlock && isBrightEnough && isHighEnough;
+    }
+
+    private static boolean isBrightEnoughToSpawn(LevelAccessor level, BlockPos pos) {
+        return level.getRawBrightness(pos, 0) > 8;
+    }
+
+
+    //FREE WANDER
+    public boolean hasEngaged = false;
+    public boolean forceLand = false;
+    public boolean isBraking = false;
+    public int groundCooldown = 0;
+    public int flightTicks = 0;
+
+
+    private void completeLanding(String reason, int cooldownTicks) {
+        //System.out.println("[BisonMuscle] " + reason);
+        this.flightTicks = 0;
+        this.hasEngagedForward = false;
+        this.isBraking = false;
+        this.forceLand = false;
+        this.groundCooldown = Math.max(this.groundCooldown, cooldownTicks);
+        this.setFlying(false);
+        this.setMobState(MobState.WANDER);
+    }
+
+    private void tickWildFlight() {
+        this.flightTicks++;
+
+        boolean isParked = !this.level().noCollision(this.getBoundingBox().move(0, -0.5, 0));
+
+        // Close to the ground = land. No phase check, no braking check, no decision -
+        // this is the one thing that was causing the stuck loop, so it's now unconditional.
+        // flightTicks > 40 is just takeoff immunity so it doesn't instantly re-land on launch.
+        if (this.flightTicks > 40 && isParked) {
+            completeLanding("Close to ground - landing now (parked=true).", 100);
+            return;
+        }
+
+        if (this.flightTicks < 20) {
+            this.setDeltaMovement(this.getDeltaMovement().add(0, 0.1, 0));
+        }
+
+        double gravity = 0.004D;
+        double thrustFactor = 0.08D;
+
+        float yawRad = this.getYRot() * ((float) Math.PI / 180F);
+        Vec3 delta = this.getDeltaMovement();
+
+        double velX = (delta.x * 0.98) + (-Math.sin(yawRad) * thrustFactor);
+        double velZ = (delta.z * 0.98) + (Math.cos(yawRad) * thrustFactor);
+        double velY = (delta.y * 0.98) - gravity;
+
+        if (this.isBraking) {
+            velX *= 0.8;
+            velZ *= 0.8;
+            velY -= 0.02;
+        }
+
+        this.setDeltaMovement(
+                Mth.clamp(velX, -0.5, 0.5),
+                Mth.clamp(velY, -0.4, 0.4),
+                Mth.clamp(velZ, -0.5, 0.5)
+        );
+
+        if (this.tickCount % 20 == 0 && !this.level().isClientSide) {
+            //System.out.println(String.format("[BisonMuscle] VelY: %.4f | PosY: %.2f | Parked: %b | FlightTicks: %d",
+                    //this.getDeltaMovement().y, this.getY(), isParked, this.flightTicks));
+        }
+
+        this.move(MoverType.SELF, this.getDeltaMovement());
+    }
+
+
+
+
+    //SPAWN
+    private double spawnPointX;
+    private double spawnPointZ;
+    private boolean hasSpawnPoint = false;
+
+    public double getSpawnPointX() {
+        return this.hasSpawnPoint ? this.spawnPointX : this.getX();
+    }
+
+    public double getSpawnPointZ() {
+        return this.hasSpawnPoint ? this.spawnPointZ : this.getZ();
+    }
+
+    @Override
+    public SpawnGroupData finalizeSpawn(ServerLevelAccessor level, DifficultyInstance difficulty,
+                                        MobSpawnType spawnType, @Nullable SpawnGroupData spawnGroupData, @Nullable CompoundTag compoundTag) {
+        this.spawnPointX = this.getX();
+        this.spawnPointZ = this.getZ();
+        this.hasSpawnPoint = true;
+        //System.out.println("[BisonBrain] Spawn point locked at X=" + this.spawnPointX + " Z=" + this.spawnPointZ);
+        return super.finalizeSpawn(level, difficulty, spawnType, spawnGroupData, compoundTag);
     }
 }
