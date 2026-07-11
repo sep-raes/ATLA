@@ -89,6 +89,8 @@ public class ModCategory {
                         output.accept(BANYAN_LEAVES.get());
                         output.accept(BANYAN_DOOR.get());
                         output.accept(BANYAN_TRAPDOOR.get());
+
+                        output.accept(BOOMERANG.get());
                     })
                     .build());
 
