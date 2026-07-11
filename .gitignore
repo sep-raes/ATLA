@@ -5,8 +5,11 @@ build
 gradlew
 gradlew.bat
 gradle
+
 .cache
+
 sky_bison
+
 server
 # Ignore Gradle GUI config
 gradle-app.setting
