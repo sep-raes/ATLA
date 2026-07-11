@@ -6,7 +6,6 @@ Air, Fire, Water, Earth bending
 
 Fire nation wood
 
-Earth nation huts, Water nation igloo, Fire bending ships, Air bending Temples
 
 Armor
     - Dai Lee

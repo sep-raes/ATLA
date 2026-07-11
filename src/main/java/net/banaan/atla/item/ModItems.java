@@ -53,7 +53,7 @@ public class ModItems {
             () -> new SwordItem(Tiers.IRON, 3, 1, new Item.Properties()));
 
     public static final RegistryObject<Item> SKY_BISON_SPAWN_EGG = ITEMS.register("sky_bison_spawn_egg",
-            () -> new ForgeSpawnEggItem(ModEntities.SKY_BISON, 0x7e9680, 0xc5d1c5, new Item.Properties()));
+            () -> new ForgeSpawnEggItem(ModEntities.SKY_BISON, 0xdbd0bc, 0x7e624e, new Item.Properties()));
 
 
     public static final RegistryObject<Item> OAK_BISON_SADDLE = ITEMS.register("oak_bison_saddle",
