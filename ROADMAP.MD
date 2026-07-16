@@ -23,4 +23,5 @@ Momo
 
 Pai Sho
 
+seismic sense (gebruik vibration animatie)
 

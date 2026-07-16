@@ -24,7 +24,7 @@ public class BoomerangProjectileEntity extends ThrowableItemProjectile {
 
     @Override
     protected Item getDefaultItem() {
-        return ModItems.BANANA.get();
+        return ModItems.BOOMERANG.get();
     }
 
     @Override
