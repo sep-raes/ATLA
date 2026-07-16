@@ -1,6 +1,7 @@
 package net.banaan.atla.block;
 
 import net.banaan.atla.block.custom.FruitPieBlock;
+import net.banaan.atla.block.custom.PaiShoTableBlock;
 import net.banaan.atla.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DoubleHighBlockItem;
@@ -201,6 +202,10 @@ public class ModBlocks {
 
 
     */
+
+    public static final RegistryObject<Block> PAI_SHO_TABLE = registerBlock("pai_sho_table",
+            () -> new PaiShoTableBlock(BlockBehaviour.Properties.of()));
+
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

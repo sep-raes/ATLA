@@ -3,21 +3,15 @@ package net.banaan.atla.datagen.loot;
 import net.banaan.atla.block.ModBlocks;
 import net.banaan.atla.item.ModItems;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.SlabBlock;
-import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.block.state.properties.SlabType;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
@@ -73,6 +67,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createFortuneDrop(ModBlocks.BANANA_PLANT.get(), ModItems.BANANA_LEAF.get()));
         this.add(ModBlocks.FRUIT_PIE.get(),
                 block -> createClearDrop());
+
+
+        this.dropSelf(ModBlocks.PAI_SHO_TABLE.get());
 
 
     }

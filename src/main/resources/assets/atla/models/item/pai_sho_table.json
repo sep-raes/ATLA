@@ -1,0 +1,31 @@
+{
+  "parent": "minecraft:item/handheld",
+  "loader": "forge:separate_transforms",
+  "base": {
+    "parent": "atla:item/pai_sho_table_3d"
+  },
+  "perspectives": {
+    "gui": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "ground": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "fixed": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "thirdperson_righthand": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "thirdperson_lefthand": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "firstperson_righthand": {
+      "parent": "atla:item/pai_sho_table_2d"
+    },
+    "firstperson_lefthand": {
+      "parent": "atla:item/pai_sho_table_2d"
+    }
+  }
+}
+

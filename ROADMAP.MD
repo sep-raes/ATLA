@@ -17,7 +17,6 @@ Armor
     - Metalbender
 
 
-Sky Bison (In groups) //UNFINISHED
 Badger moles per 2(Spawn in caves)
 Fire nation lizards
 Momo

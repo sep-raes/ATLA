@@ -240,7 +240,7 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
                 .add(Attributes.MAX_HEALTH, 100.0D)
                 .add(Attributes.MOVEMENT_SPEED, 0.2D)
                 .add(Attributes.FOLLOW_RANGE, 32.0D)
-                .add(Attributes.JUMP_STRENGTH, 0.7D);
+                .add(Attributes.JUMP_STRENGTH, 1D);
     }
 
     // BREEDING
@@ -532,7 +532,9 @@ public class SkyBisonEntity extends TamableAnimal implements Saddleable, PlayerR
             this.setSpeed(speed);
             Vec3 input = this.getRiddenInput(controller, travelVector);
 
-            super.travel(new Vec3(0.0D, travelVector.y, input.z));
+            float speedZ = (float) (input.z * 0.3f);
+
+            super.travel(new Vec3(0.0D, travelVector.y, speedZ));
             return;
         }
 

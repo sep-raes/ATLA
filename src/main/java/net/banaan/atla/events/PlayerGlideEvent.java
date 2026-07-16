@@ -33,8 +33,9 @@ public class PlayerGlideEvent {
 
 
         if (GlideData.isGliding(uuid)) {
-
-            GlidePhysics.applyGlideMotion(player, airTicks.getOrDefault(uuid, 0));
+            if (!GlideData.consumeBoostTick(uuid)) {
+                GlidePhysics.applyGlideMotion(player, airTicks.getOrDefault(uuid, 0));
+            }
         }
     }
 

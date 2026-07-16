@@ -21,6 +21,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlock(ModBlocks.BANANA_LEAVES.get());
         simpleBlock(ModBlocks.BANYAN_LEAVES.get());
         blockWithItem(ModBlocks.BANYAN_PLANKS);
+        simpleBlock(ModBlocks.PAI_SHO_TABLE.get());
+
 
 
         logBlock(((RotatedPillarBlock) ModBlocks.BANANA_LOG.get()));
@@ -56,6 +58,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         doorBlockWithRenderType(((DoorBlock) ModBlocks.BANYAN_DOOR.get()), modLoc("block/banyan_door_bottom"), modLoc("block/banyan_door_top"), "cutout");
         trapdoorBlockWithRenderType(((TrapDoorBlock) ModBlocks.BANYAN_TRAPDOOR.get()), modLoc("block/banyan_trapdoor"), true, "cutout");
+
+
 
 
     }

@@ -13,6 +13,18 @@
     },
     "fixed": {
       "parent": "atla:item/fruit_pie_2d"
+    },
+    "thirdperson_righthand": {
+      "parent": "atla:item/fruit_pie_2d"
+    },
+    "thirdperson_lefthand": {
+      "parent": "atla:item/fruit_pie_2d"
+    },
+    "firstperson_righthand": {
+      "parent": "atla:item/fruit_pie_2d"
+    },
+    "firstperson_lefthand": {
+      "parent": "atla:item/fruit_pie_2d"
     }
   }
 }

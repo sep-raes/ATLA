@@ -2,9 +2,12 @@ package net.banaan.atla.events;
 
 
 import net.banaan.atla.Atla;
+import net.banaan.atla.GUI.ModMenuTypes;
+import net.banaan.atla.GUI.PaiSho.PaiShoTableScreen;
 import net.banaan.atla.entity.client.ModModelLayers;
 import net.banaan.atla.entity.entities.SkyBison;
 import net.banaan.atla.item.ModItems;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,6 +40,7 @@ public class ModEventClientBusEvents {
                         return 1.0F;
                     });
         });
+        event.enqueueWork(() -> MenuScreens.register(ModMenuTypes.PAI_SHO_TABLE_MENU.get(), PaiShoTableScreen::new));
     }
 
 }

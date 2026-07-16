@@ -21,6 +21,5 @@ public class ModWoodTypes {
     );
 
     public static void register() {
-        // called once during mod init to force class-load / registration
     }
 }

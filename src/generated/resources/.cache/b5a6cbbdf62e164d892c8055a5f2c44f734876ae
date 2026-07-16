@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-07T22:03:21.9629393	Block States: atla
+// 1.20.1	2026-07-11T18:10:13.2302062	Block States: atla
 f0e330394b03140b2c74ef5bba6799144f1a4db3 assets/atla/blockstates/banana_button.json
 77f4b2c91d969e3b61d9a987b8297e1ab50d5705 assets/atla/blockstates/banana_door.json
 0f05bd15398b9dcbc68364484293522be6be2daa assets/atla/blockstates/banana_fence.json
@@ -25,6 +25,7 @@ d67616e6d8d998fb0c2461b836630526af126a04 assets/atla/blockstates/banyan_pressure
 200b0124394072d765e8310fcf3b022341792f3a assets/atla/blockstates/banyan_trapdoor.json
 c1e389865926a5e4c7f8869f391aa304db2e0fe2 assets/atla/blockstates/banyan_wood.json
 af2ec9b385190b0e96e8984525770ed32bad04b6 assets/atla/blockstates/fruit_pie.json
+c12176bce9907459b9f442a18062850c24286e2b assets/atla/blockstates/pai_sho_table.json
 58986b01f022242a870af67b8c0107d43563aadd assets/atla/blockstates/stripped_banana_log.json
 e90a4bbf9603bc659aa22700a8220904187fb2e3 assets/atla/blockstates/stripped_banana_wood.json
 9e364321f1d29c7e571c27379913c7f15f30d4d4 assets/atla/blockstates/stripped_banyan_log.json
@@ -95,6 +96,7 @@ bc3d01b625cf801c46267c8e6892a6adb9b75d3b assets/atla/models/block/banyan_trapdoo
 d360f3a600e955a035afa6ea55ac5ee7487bff26 assets/atla/models/block/banyan_wood.json
 a81c0a8e9381878c56c9e5387657c9c845e9b9e3 assets/atla/models/block/banyan_wood_horizontal.json
 03e478c40fb441815713e69ac43975ace4641750 assets/atla/models/block/fruit_pie.json
+e1a6c9b17cdde87b53aab0f21263fcc49f43a8fe assets/atla/models/block/pai_sho_table.json
 a9872c917d8612b160b6bcc043e5b56e7ea8b5de assets/atla/models/block/stripped_banana_log.json
 c0f7c7efb956e7344141e29fa598e90a310e940e assets/atla/models/block/stripped_banana_log_horizontal.json
 c8d5ca1c1cf69f4b7257de5cd7d4a9616a87fe5c assets/atla/models/block/stripped_banana_wood.json

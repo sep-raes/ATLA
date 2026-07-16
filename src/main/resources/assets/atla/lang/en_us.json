@@ -57,10 +57,92 @@
   "block.atla.banyan_trapdoor": "Banyan Trapdoor",
   "block.atla.banyan_leaves": "Banyan Leaves",
 
+  "block.atla.pai_sho_table": "Pai Sho Table",
+
 
   "chat.atla.glider_level_right_click": "Opened Glider Staff",
 
+
   "message.atla.sky_bison.riding": "Press",
 
-  "entity.atla.sky_bison": "Sky Bison"
+  "entity.atla.sky_bison": "Sky Bison",
+
+  "item.atla.rose_dark": "§lRose (R3)",
+  "tooltip.atla.rose_dark": "Placement: Must be planted at a gate\n§7Can move up to 3 spaces.\n§7Harmonies: §aChrysanthemum§7, §aWhite Jade\n§7Clashes: §cJasmine",
+
+  "item.atla.chrysanthemum_dark": "§lChrysanthemum (R4)",
+  "tooltip.atla.chrysanthemum_dark": "Placement: Must be planted at a gate\n§7Can move up to 4 spaces.\n§7Harmonies: §aRose§7, §aRhododendron\n§7Clashes: §cLily",
+
+  "item.atla.rhododendron_dark": "§lRhododendron (R5)",
+  "tooltip.atla.rhododendron_dark": "Placement: Must be planted at a gate\n§7Can move up to 5 spaces.\n§7Harmonies: §aJasmine§7, §aChrysanthemum\n§7Clashes: §cWhite Jade",
+
+  "item.atla.jasmine_dark": "§lJasmine (W3)",
+  "tooltip.atla.jasmine_dark": "Placement: Must be planted at a gate\n§7Can move up to 3 spaces.\n§7Harmonies: §aLily§7, §aRhododendron\n§7Clashes: §cRose",
+
+  "item.atla.lily_dark": "§lLily (W4)",
+  "tooltip.atla.lily_dark": "Placement: Must be planted at a gate\n§7Can move up to 4 spaces.\n§7Harmonies: §aJasmine§7, §aWhite Jade\n§7Clashes: §cChrysanthemum",
+
+  "item.atla.white_jade_dark": "§lWhite Jade (W5)",
+  "tooltip.atla.white_jade_dark": "Placement: Must be planted at a gate\n§7Can move up to 5 spaces.\n§7Harmonies: §aLily§7, §aRose\n§7Clashes: §cRhododendron",
+
+
+  "item.atla.wheel_dark": "§lWheel (Accent)",
+  "tooltip.atla.wheel_dark": "Placement: Anywhere except gates\n§7Rotates adjacent tiles 1 space clockwise.\n§cCannot move Rocks, off-board tiles, or tiles in/out of gates.",
+
+  "item.atla.boat_dark": "§lBoat (Accent)",
+  "tooltip.atla.boat_dark": "Placement: Anywhere except gates\n§7Removes itself and an opposing Accent tile.\n§7Can swap with a Flower, placing it adjacent to the boats old spot.",
+
+  "item.atla.rock_dark": "§lRock (Accent)",
+  "tooltip.atla.rock_dark": "Placement: Anywhere except gates\n§7Blocks harmonies along its line when placed between flowers.\n§cImmune to Wheel rotation.",
+
+  "item.atla.knotweed_dark": "§lKnotweed (Accent)",
+  "tooltip.atla.knotweed_dark": "Placement: Anywhere except gates\n§7Drains adjacent flowers' ability to harmonize.\n§7Harmonies return once the flower moves away.",
+
+
+  "item.atla.white_lotus_dark": "§lWhite Lotus (Special Flower)",
+  "tooltip.atla.white_lotus_dark": "Placement: Must be planted at a gate\n§7Can move up to 2 spaces.\n§7Harmonizes with all basic flower tiles of either player.",
+
+  "item.atla.orchid_dark": "§lOrchid (Special Flower)",
+  "tooltip.atla.orchid_dark": "Placement: Must be planted at a gate\n§7Can move up to 6 spaces.\n§7Traps adjacent flowers, preventing them from moving.",
+
+
+
+
+  "item.atla.rose_white": "§lRose (R3)",
+  "tooltip.atla.rose_white": "Placement: Must be planted at a gate\n§7Can move up to 3 spaces.\n§7Harmonies: §aChrysanthemum§7, §aWhite Jade\n§7Clashes: §cJasmine",
+
+  "item.atla.chrysanthemum_white": "§lChrysanthemum (R4)",
+  "tooltip.atla.chrysanthemum_white": "Placement: Must be planted at a gate\n§7Can move up to 4 spaces.\n§7Harmonies: §aRose§7, §aRhododendron\n§7Clashes: §cLily",
+
+  "item.atla.rhododendron_white": "§lRhododendron (R5)",
+  "tooltip.atla.rhododendron_white": "Placement: Must be planted at a gate\n§7Can move up to 5 spaces.\n§7Harmonies: §aJasmine§7, §aChrysanthemum\n§7Clashes: §cWhite Jade",
+
+  "item.atla.jasmine_white": "§lJasmine (W3)",
+  "tooltip.atla.jasmine_white": "Placement: Must be planted at a gate\n§7Can move up to 3 spaces.\n§7Harmonies: §aLily§7, §aRhododendron\n§7Clashes: §cRose",
+
+  "item.atla.lily_white": "§lLily (W4)",
+  "tooltip.atla.lily_white": "Placement: Must be planted at a gate\n§7Can move up to 4 spaces.\n§7Harmonies: §aJasmine§7, §aWhite Jade\n§7Clashes: §cChrysanthemum",
+
+  "item.atla.white_jade_white": "§lWhite Jade (W5)",
+  "tooltip.atla.white_jade_white": "Placement: Must be planted at a gate\n§7Can move up to 5 spaces.\n§7Harmonies: §aLily§7, §aRose\n§7Clashes: §cRhododendron",
+
+
+  "item.atla.wheel_white": "§lWheel (Accent)",
+  "tooltip.atla.wheel_white": "Placement: Anywhere except gates\n§7Rotates adjacent tiles 1 space clockwise.\n§cCannot move Rocks, off-board tiles, or tiles in/out of gates.",
+
+  "item.atla.boat_white": "§lBoat (Accent)",
+  "tooltip.atla.boat_white": "Placement: Anywhere except gates\n§7Removes itself and an opposing Accent tile.\n§7Can swap with a Flower, placing it adjacent to your old spot.",
+
+  "item.atla.rock_white": "§lRock (Accent)",
+  "tooltip.atla.rock_white": "Placement: Anywhere except gates\n§7Blocks harmonies along its line when placed between flowers.\n§cImmune to Wheel rotation.",
+
+  "item.atla.knotweed_white": "§lKnotweed (Accent)",
+  "tooltip.atla.knotweed_white": "Placement: Anywhere except gates\n§7Drains adjacent flowers' ability to harmonize.\n§7Harmonies return once the flower moves away.",
+
+
+  "item.atla.white_lotus_white": "§lWhite Lotus (Special Flower)",
+  "tooltip.atla.white_lotus_white": "Placement: Must be planted at a gate\n§7Can move up to 2 spaces.\n§7Harmonizes with all basic flower tiles of either player.",
+
+  "item.atla.orchid_white": "§lOrchid (Special Flower)",
+  "tooltip.atla.orchid_white": "Placement: Must be planted at a gate\n§7Can move up to 6 spaces.\n§7Traps adjacent flowers, preventing them from moving."
 }

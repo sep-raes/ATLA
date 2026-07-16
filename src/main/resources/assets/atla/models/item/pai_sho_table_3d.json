@@ -1,0 +1,23 @@
+{
+  "format_version": "1.9.0",
+  "credit": "Made with Blockbench",
+  "texture_size": [32, 32],
+  "textures": {
+    "3": "atla:block/pai_sho_table",
+    "particle": "atla:block/pai_sho_table"
+  },
+  "elements": [
+    {
+      "from": [0, 0, 0],
+      "to": [16, 2, 16],
+      "faces": {
+        "north": {"uv": [8, 0, 16, 1], "texture": "#3"},
+        "east": {"uv": [8, 1, 16, 2], "texture": "#3"},
+        "south": {"uv": [8, 2, 16, 3], "texture": "#3"},
+        "west": {"uv": [8, 3, 16, 4], "texture": "#3"},
+        "up": {"uv": [8, 8, 0, 0], "texture": "#3"},
+        "down": {"uv": [8, 8, 0, 16], "texture": "#3"}
+      }
+    }
+  ]
+}

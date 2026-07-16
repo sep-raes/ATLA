@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-07T22:03:21.964951	Loot Tables
+// 1.20.1	2026-07-11T18:10:13.2323496	Loot Tables
 67464a5eb61ef7f2c7c32a927d94051196b88868 data/atla/loot_tables/blocks/banana_button.json
 9ad5e6f0bf1c355f76885e27bf1f0504c103df3f data/atla/loot_tables/blocks/banana_door.json
 4eb007bae4fa94d872ba96a350afe1e917ae4a88 data/atla/loot_tables/blocks/banana_fence.json
@@ -25,6 +25,7 @@ d48e48b874b644689550031bdecf510ebea1ccab data/atla/loot_tables/blocks/banyan_sta
 a47431e23d7b09b59b2fe13199c0b4ac4be89220 data/atla/loot_tables/blocks/banyan_trapdoor.json
 62df320addeb002dc1b5d83c273edc0c56e31f0e data/atla/loot_tables/blocks/banyan_wood.json
 3b95cbf3a1bdc296cf242884b58821407e6dffb4 data/atla/loot_tables/blocks/fruit_pie.json
+6592eec07e748e818618fb42fecbe038950939a7 data/atla/loot_tables/blocks/pai_sho_table.json
 a80cb3e8b9bf05e7bf9367ed99e4a807e6713b03 data/atla/loot_tables/blocks/stripped_banana_log.json
 c828c676fa489db3a9083735a8e16a6e741e41a6 data/atla/loot_tables/blocks/stripped_banana_wood.json
 26255a90e6284023b8703d2daa2110912918db0d data/atla/loot_tables/blocks/stripped_banyan_log.json

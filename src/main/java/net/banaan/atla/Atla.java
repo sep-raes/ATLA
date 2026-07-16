@@ -1,12 +1,15 @@
 package net.banaan.atla;
 
 import com.mojang.logging.LogUtils;
+import net.banaan.atla.GUI.ModMenuTypes;
 import net.banaan.atla.block.ModBlocks;
+import net.banaan.atla.block.entity.ModBlockEntities;
 import net.banaan.atla.category.ModCategory;
 import net.banaan.atla.entity.ModEntities;
 import net.banaan.atla.entity.client.SkyBisonRenderer;
 import net.banaan.atla.entity.entities.SkyBisonEntity;
 import net.banaan.atla.item.ModItems;
+import net.banaan.atla.network.ModMessages;
 import net.banaan.atla.util.GlideData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.entity.EntityRenderers;
@@ -52,6 +55,11 @@ public class Atla {
         ModBlocks.register(modEventBus);
         ModCategory.register(modEventBus);
         ModEntities.register(modEventBus);
+        ModMenuTypes.MENU_TYPES.register(modEventBus);
+        ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);
+        ModMessages.register();
+
+
 
         MinecraftForge.EVENT_BUS.register(this);
 

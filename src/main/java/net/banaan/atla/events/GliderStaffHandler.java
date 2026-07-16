@@ -37,7 +37,6 @@ public class GliderStaffHandler {
         int value = ModItemData.getTag(itemStack, "gliderLevel");
         if (value != 2) return;
 
-        // Only touch the camera on the client
         changeCamera(event.getLevel(), player);
         player.sendSystemMessage(Component.translatable("chat.atla.glider_level_right_click"));
 
@@ -48,7 +47,6 @@ public class GliderStaffHandler {
             DistExecutor.unsafeRunWhenOn(Dist.CLIENT, () -> (Runnable) () -> CameraToggle.toggleCamera(player));
             toggle(player.getUUID());
             GlideData.setGliding(player.getUUID(), getToggle(player.getUUID()));
-            player.sendSystemMessage(Component.translatable(player.getStringUUID() + toggle));
         }
     }
 
