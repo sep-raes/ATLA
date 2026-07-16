@@ -74,6 +74,11 @@ public class BendingData implements IBendingData {
     }
 
     @Override
+    public void clearElements() {
+        this.selectedElement = null;
+    }
+
+    @Override
     public ResourceLocation getAbilityInSlot(Element element, int slot) {
         ResourceLocation[] elementSlots = slots.get(element);
         if (elementSlots == null || slot < 0 || slot >= SLOT_COUNT) return null;
@@ -159,7 +164,13 @@ public class BendingData implements IBendingData {
         knownElements.clear();
         nbt.getList("knownElements", Tag.TAG_STRING).forEach(t -> knownElements.add(Element.valueOf(t.getAsString())));
 
-        if (nbt.contains("selectedElement")) selectedElement = Element.valueOf(nbt.getString("selectedElement"));
+        if (nbt.contains("selectedElement")) {
+            selectedElement = Element.valueOf(nbt.getString("selectedElement"));
+        } else {
+            selectedElement = null;
+        }
+
+        slots.clear();
 
         CompoundTag slotsTag = nbt.getCompound("slots");
         for (String key : slotsTag.getAllKeys()) {

@@ -16,6 +16,9 @@ public interface IBendingData {
 
     Element getSelectedElement();
     void setSelectedElement(Element element);
+
+    void clearElements();
+
     ResourceLocation getAbilityInSlot(Element element, int slot);
     void setAbilityInSlot(Element element, int slot, ResourceLocation abilityId);
     void startCooldown(ResourceLocation abilityId, long currentTick, int durationTicks);
