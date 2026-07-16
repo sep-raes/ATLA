@@ -1,4 +1,4 @@
-package net.banaan.atla.util;
+package net.banaan.atla.util.glider;
 
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;

@@ -8,7 +8,7 @@ import net.banaan.atla.entity.goals.RandomStrollUntamedGoal;
 import net.banaan.atla.entity.goals.WanderFlyGoal;
 import net.banaan.atla.entity.goals.WanderStateGoal;
 import net.banaan.atla.item.ModItems;
-import net.banaan.atla.util.ModTags;
+import net.banaan.atla.util.tags.ModTags;
 import net.banaan.atla.util.enums.MobSaddle;
 import net.banaan.atla.util.enums.MobState;
 import net.minecraft.client.Minecraft;

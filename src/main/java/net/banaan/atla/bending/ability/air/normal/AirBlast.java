@@ -1,9 +1,10 @@
-package net.banaan.atla.bending.ability.air;
+package net.banaan.atla.bending.ability.air.normal;
 
 import net.banaan.atla.bending.ability.Ability;
 import net.banaan.atla.bending.ability.AbilityType;
 import net.banaan.atla.bending.element.Element;
-import net.banaan.atla.util.GlideData;
+import net.banaan.atla.bending.registry.AbilityRegistry;
+import net.banaan.atla.util.glider.GlideData;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket;
 import net.minecraft.resources.ResourceLocation;
@@ -20,8 +21,8 @@ import java.util.List;
 
 @SuppressWarnings("removal")
 public class AirBlast extends Ability {
-    public static final AbilityType TYPE = new AbilityType(
-            new ResourceLocation("atla", "air_blast"), Element.AIR, 20, AirBlast::new);
+    public static final AbilityType TYPE = AbilityRegistry.register(new AbilityType(
+            new ResourceLocation("atla", "air_blast"), Element.AIR, 80, new ResourceLocation("atla", "textures/gui/bending/hud/air/air_blast.png"), 1, AbilityType.ActivationState.NORMAL, AirBlast::new));
 
     private static final double RADIUS = 4.0;
     private static final double HORIZONTAL_KNOCKBACK = 1.1;

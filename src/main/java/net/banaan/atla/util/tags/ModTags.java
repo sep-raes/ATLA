@@ -1,4 +1,4 @@
-package net.banaan.atla.util;
+package net.banaan.atla.util.tags;
 
 import net.banaan.atla.Atla;
 import net.minecraft.resources.ResourceLocation;

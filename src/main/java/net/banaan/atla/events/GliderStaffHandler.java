@@ -3,7 +3,7 @@ package net.banaan.atla.events;
 import net.banaan.atla.item.ModItems;
 import net.banaan.atla.item.data.ModItemData;
 import net.banaan.atla.util.CameraToggle;
-import net.banaan.atla.util.GlideData;
+import net.banaan.atla.util.glider.GlideData;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;

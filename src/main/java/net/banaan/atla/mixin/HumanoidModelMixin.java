@@ -1,7 +1,7 @@
 package net.banaan.atla.mixin;
 
 import net.banaan.atla.events.GliderStaffHandler;
-import net.banaan.atla.util.GlidePhysics;
+import net.banaan.atla.util.glider.GlidePhysics;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.ModelPart;
 import net.minecraft.world.entity.LivingEntity;

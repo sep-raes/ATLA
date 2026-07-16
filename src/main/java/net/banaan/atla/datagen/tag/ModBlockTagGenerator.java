@@ -2,7 +2,7 @@ package net.banaan.atla.datagen.tag;
 
 import net.banaan.atla.Atla;
 import net.banaan.atla.block.ModBlocks;
-import net.banaan.atla.util.ModTags;
+import net.banaan.atla.util.tags.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;

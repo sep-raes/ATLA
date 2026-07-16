@@ -145,5 +145,20 @@
   "tooltip.atla.white_lotus_white": "Placement: Must be planted at a gate\n§7Can move up to 2 spaces.\n§7Harmonizes with all basic flower tiles of either player.",
 
   "item.atla.orchid_white": "§lOrchid (Special Flower)",
-  "tooltip.atla.orchid_white": "Placement: Must be planted at a gate\n§7Can move up to 6 spaces.\n§7Traps adjacent flowers, preventing them from moving."
+  "tooltip.atla.orchid_white": "Placement: Must be planted at a gate\n§7Can move up to 6 spaces.\n§7Traps adjacent flowers, preventing them from moving.",
+
+  "key.atla.ability_1": "Skill 1",
+  "key.atla.ability_2": "Skill 2",
+  "key.atla.ability_3": "Skill 3",
+  "key.atla.ability_4": "Skill 4",
+  "key.atla.ability_menu": "Element Menu",
+  "key.atla.cycle_element": "Cycle Elements (Avatar Only)",
+  "key.atla.enable_bending": "Enable Bending",
+
+  "key.category.atla.avatar_controls": "Atla Controls"
+
+
+
+
+
 }

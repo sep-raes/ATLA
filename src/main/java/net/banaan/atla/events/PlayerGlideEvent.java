@@ -1,7 +1,7 @@
 package net.banaan.atla.events;
 
-import net.banaan.atla.util.GlideData;
-import net.banaan.atla.util.GlidePhysics;
+import net.banaan.atla.util.glider.GlideData;
+import net.banaan.atla.util.glider.GlidePhysics;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;

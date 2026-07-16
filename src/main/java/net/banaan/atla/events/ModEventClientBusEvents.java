@@ -2,6 +2,7 @@ package net.banaan.atla.events;
 
 
 import net.banaan.atla.Atla;
+import net.banaan.atla.GUI.Bending.BendingHudOverlay;
 import net.banaan.atla.GUI.ModMenuTypes;
 import net.banaan.atla.GUI.PaiSho.PaiShoTableScreen;
 import net.banaan.atla.entity.client.ModModelLayers;
@@ -12,6 +13,8 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.client.event.EntityRenderersEvent;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
+import net.minecraftforge.client.gui.overlay.VanillaGuiOverlay;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -22,6 +25,11 @@ public class ModEventClientBusEvents {
     @SubscribeEvent
     public static void registerLayer(EntityRenderersEvent.RegisterLayerDefinitions event) {
         event.registerLayerDefinition(ModModelLayers.SKY_BISON_LAYER, SkyBison::createBodyLayer);
+    }
+
+    @SubscribeEvent
+    public static void registerGuiOverlays(RegisterGuiOverlaysEvent event) {
+        event.registerAbove(VanillaGuiOverlay.AIR_LEVEL.id(), "bending_hud", BendingHudOverlay.BENDING_HUD);
     }
 
     @SubscribeEvent

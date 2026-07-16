@@ -28,17 +28,20 @@ public class ModMessages {
                 .consumerMainThread(JoinPaiShoTablePacket::handle)
                 .add();
 
-        channel.messageBuilder(OpenPaiShoWaitingOverlayPacket.class, id++)
-                .encoder(OpenPaiShoWaitingOverlayPacket::toBytes)
-                .decoder(OpenPaiShoWaitingOverlayPacket::new)
-                .consumerMainThread(OpenPaiShoWaitingOverlayPacket::handle)
-                .add();
 
         channel.messageBuilder(LeavePaiShoTablePacket.class, id++)
                 .encoder(LeavePaiShoTablePacket::toBytes)
                 .decoder(LeavePaiShoTablePacket::new)
                 .consumerMainThread(LeavePaiShoTablePacket::handle)
                 .add();
+
+        channel.messageBuilder(BendingSyncPacket.class, id++)
+                .encoder(BendingSyncPacket::toBytes)
+                .decoder(BendingSyncPacket::new)
+                .consumerMainThread(BendingSyncPacket::handle)
+                .add();
+
+
     }
 
     public static void sendToServer(Object msg) { channel.sendToServer(msg); }

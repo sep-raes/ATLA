@@ -1,4 +1,4 @@
-package net.banaan.atla.util;
+package net.banaan.atla.util.glider;
 
 import java.util.HashMap;
 import java.util.UUID;
