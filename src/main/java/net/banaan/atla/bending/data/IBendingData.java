@@ -25,7 +25,6 @@ public interface IBendingData {
     long getCooldownRemaining(ResourceLocation abilityId, long currentTick);
     int getSubBendingIndex();
     void setSubBendingIndex(int index);
-    void toggleSubBendingIndex();
 
     default boolean isOnCooldown(ResourceLocation abilityId, long currentTick) {
         return getCooldownRemaining(abilityId, currentTick) > 0;

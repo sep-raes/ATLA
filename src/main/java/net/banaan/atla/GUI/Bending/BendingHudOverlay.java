@@ -33,7 +33,8 @@ public class BendingHudOverlay {
         int offset = (iconSize - drawSize - 2) / 2;
 
         boolean sneaking = mc.player.isCrouching();
-        boolean clicking = mc.options.keyUse.isDown(); // default RMB
+        boolean clicking = mc.options.keyUse.isDown();
+
 
         mc.player.getCapability(ModCapabilities.BENDING_DATA).ifPresent(data -> {
             Element element = data.getSelectedElement();
@@ -55,15 +56,20 @@ public class BendingHudOverlay {
                 AbilityType type = AbilitySlotRegistry.get(element, i, currentState);
                 if (type != null) {
                     guiGraphics.blit(type.icon(), startX + offset, y + offset, 0, 0, drawSize + 2, drawSize + 2, drawSize, drawSize);
-                    if (i == 0) {guiGraphics.blit(OVERLAY, startX, y, 0, 0, iconSize, iconSize, iconSize, iconSize);
-                        String cooldown = "90";
 
+                    long currentTick = mc.player.level().getGameTime();
+                    long remainingTicks = data.getCooldownRemaining(type.id(), currentTick);
+
+                    if (remainingTicks > 0) {
+                        guiGraphics.blit(OVERLAY, startX, y, 0, 0, iconSize, iconSize, iconSize, iconSize);
+
+                        String cooldown = String.valueOf((long) Math.ceil(remainingTicks / 20.0));
 
                         guiGraphics.pose().pushPose();
                         guiGraphics.pose().translate(0, 0, 200);
                         guiGraphics.pose().scale(1.8f, 1.8f, 1);
 
-                        int textX = (int) ((startX + (iconSize / 1.8f) - 6 - (cooldown.length()-1) * 6) / 1.8f);
+                        int textX = (int) ((startX + (iconSize / 1.8f) - 6 - (cooldown.length() - 1) * 6) / 1.8f);
                         int textY = (int) ((y + (iconSize / 1.8f) - 7) / 1.8f);
                         guiGraphics.drawString(font, cooldown, textX, textY, 0xB5B3AC, true);
 
@@ -75,11 +81,9 @@ public class BendingHudOverlay {
     };
 
     private static AbilityType.ActivationState stateFor(boolean sneaking, boolean clicking, int subBendingIndex) {
-        if (sneaking && clicking) {
-            return subBendingIndex == 2
-                    ? AbilityType.ActivationState.SUB_BENDING_2
-                    : AbilityType.ActivationState.SUB_BENDING_1;
-        }
+        if (subBendingIndex == 1) return AbilityType.ActivationState.SUB_BENDING_1;
+        if (subBendingIndex == 2) return AbilityType.ActivationState.SUB_BENDING_2;
+
         if (clicking) return AbilityType.ActivationState.CLICK;
         if (sneaking) return AbilityType.ActivationState.SNEAK;
         return AbilityType.ActivationState.NORMAL;

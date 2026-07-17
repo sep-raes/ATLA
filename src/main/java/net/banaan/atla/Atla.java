@@ -50,7 +50,6 @@ public class Atla {
     public Atla() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         System.out.println("doodoogaysex");
-        // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
         ModItems.register(modEventBus);
@@ -60,6 +59,7 @@ public class Atla {
 
         AbilityBootstrap.init();
         AbilitySlotRegistry.init();
+
 
         ModMenuTypes.MENU_TYPES.register(modEventBus);
         ModBlockEntities.BLOCK_ENTITIES.register(modEventBus);

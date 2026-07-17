@@ -41,6 +41,42 @@ public class ModMessages {
                 .consumerMainThread(BendingSyncPacket::handle)
                 .add();
 
+        channel.messageBuilder(AbilityOne.class, id++)
+                .encoder(AbilityOne::toBytes)
+                .decoder(AbilityOne::new)
+                .consumerMainThread(AbilityOne::handle)
+                .add();
+
+        channel.messageBuilder(AbilityTwo.class, id++)
+                .encoder(AbilityTwo::toBytes)
+                .decoder(AbilityTwo::new)
+                .consumerMainThread(AbilityTwo::handle)
+                .add();
+
+    channel.messageBuilder(AbilityThree.class, id++)
+                .encoder(AbilityThree::toBytes)
+                .decoder(AbilityThree::new)
+                .consumerMainThread(AbilityThree::handle)
+                .add();
+
+        channel.messageBuilder(AbilityFour.class, id++)
+                .encoder(AbilityFour::toBytes)
+                .decoder(AbilityFour::new)
+                .consumerMainThread(AbilityFour::handle)
+                .add();
+
+        channel.messageBuilder(AbilityMenu.class, id++)
+                .encoder(AbilityMenu::toBytes)
+                .decoder(AbilityMenu::new)
+                .consumerMainThread(AbilityMenu::handle)
+                .add();
+
+        channel.messageBuilder(CycleElements.class, id++)
+                .encoder(CycleElements::toBytes)
+                .decoder(CycleElements::new)
+                .consumerMainThread(CycleElements::handle)
+                .add();
+
 
     }
 

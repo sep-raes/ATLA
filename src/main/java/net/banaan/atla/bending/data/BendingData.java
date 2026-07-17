@@ -98,13 +98,12 @@ public class BendingData implements IBendingData {
 
     @Override
     public void setSubBendingIndex(int index) {
-        this.subBendingIndex = (index == 2) ? 2 : 1; // clamp to valid range 1-2
+        if (index >= 0 && index <= 2) {
+            this.subBendingIndex = index;
+        }
     }
 
-    @Override
-    public void toggleSubBendingIndex() {
-        this.subBendingIndex = (subBendingIndex == 1) ? 2 : 1;
-    }
+
 
     @Override
     public void startCooldown(ResourceLocation abilityId, long currentTick, int durationTicks) {
@@ -114,7 +113,9 @@ public class BendingData implements IBendingData {
     @Override
     public long getCooldownRemaining(ResourceLocation abilityId, long currentTick) {
         Long expiry = cooldownExpiry.get(abilityId);
-        return (expiry == null) ? 0L : Math.max(expiry - currentTick, 0L);
+        if (expiry == null) return 0L;
+        long remaining = expiry - currentTick;
+        return Math.max(0L, remaining);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class BendingData implements IBendingData {
         }
     }
 
-    // --- NBT Serialization ---
+// --- NBT Serialization ---
 
     public CompoundTag saveNBT() {
         CompoundTag nbt = new CompoundTag();
@@ -153,6 +154,12 @@ public class BendingData implements IBendingData {
             slotsTag.put(entry.getKey().name(), list);
         }
         nbt.put("slots", slotsTag);
+
+        CompoundTag cooldownsTag = new CompoundTag();
+        for (Map.Entry<ResourceLocation, Long> entry : cooldownExpiry.entrySet()) {
+            cooldownsTag.putLong(entry.getKey().toString(), entry.getValue());
+        }
+        nbt.put("cooldowns", cooldownsTag);
 
         return nbt;
     }
@@ -182,6 +189,14 @@ public class BendingData implements IBendingData {
                 arr[i] = val.isEmpty() ? null : new ResourceLocation(val);
             }
             slots.put(e, arr);
+        }
+
+        cooldownExpiry.clear();
+        if (nbt.contains("cooldowns")) {
+            CompoundTag cooldownsTag = nbt.getCompound("cooldowns");
+            for (String key : cooldownsTag.getAllKeys()) {
+                cooldownExpiry.put(new ResourceLocation(key), cooldownsTag.getLong(key));
+            }
         }
     }
 }

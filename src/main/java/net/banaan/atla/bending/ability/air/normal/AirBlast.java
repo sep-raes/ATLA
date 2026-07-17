@@ -33,12 +33,14 @@ public class AirBlast extends Ability {
     private static final int BOOST_SUPPRESS_TICKS = 80;
 
 
+
     public AirBlast(ServerPlayer caster) {
         super(caster, TYPE);
     }
 
     @Override
     public boolean activate() {
+        System.out.println("DEBUG: Entering activate() for " + type.id());
         if (!(caster.level() instanceof ServerLevel level)) {
             return false;
         }

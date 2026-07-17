@@ -1,6 +1,7 @@
 package net.banaan.atla.commands;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.IntegerArgumentType;
 import net.banaan.atla.bending.ability.air.normal.AirBlast;
 import net.banaan.atla.bending.data.BendingData;
 import net.banaan.atla.bending.data.ModCapabilities;
@@ -9,6 +10,7 @@ import net.banaan.atla.network.BendingSyncPacket;
 import net.banaan.atla.network.ModMessages;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.commands.arguments.EntityArgument;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.event.RegisterCommandsEvent;
@@ -19,6 +21,8 @@ import net.minecraftforge.fml.common.Mod;
 public final class ModCommands {
     @SubscribeEvent
     public static void onRegisterCommands(RegisterCommandsEvent event) {
+
+
         CommandDispatcher<CommandSourceStack> dispatcher = event.getDispatcher();
         dispatcher.register(Commands.literal("testairblast").executes(ctx -> {
             if (ctx.getSource().getEntity() instanceof ServerPlayer player) {
@@ -62,5 +66,38 @@ public final class ModCommands {
             }
             return 1;
         }));
+
+
+        dispatcher.register(Commands.literal("setsubbending")
+                .requires(source -> source.hasPermission(2))
+                .then(Commands.argument("index", IntegerArgumentType.integer(0, 2))
+                        .executes(ctx -> {
+                            ServerPlayer player = ctx.getSource().getPlayerOrException();
+                            int index = IntegerArgumentType.getInteger(ctx, "index");
+
+                            player.getCapability(ModCapabilities.BENDING_DATA).ifPresent(cap -> {
+                                cap.setSubBendingIndex(index);
+                                ModMessages.sendToPlayer(new BendingSyncPacket((BendingData) cap), player);
+                                ctx.getSource().sendSuccess(() -> Component.literal("Set your sub-bending index to " + index), true);
+                            });
+                            return 1;
+                        }))
+                .then(Commands.argument("target", EntityArgument.player())
+                        .then(Commands.argument("index", IntegerArgumentType.integer(0, 2))
+                                .executes(ctx -> {
+                                    ServerPlayer player = EntityArgument.getPlayer(ctx, "target");
+                                    int index = IntegerArgumentType.getInteger(ctx, "index");
+
+                                    player.getCapability(ModCapabilities.BENDING_DATA).ifPresent(cap -> {
+                                        cap.setSubBendingIndex(index);
+                                        ModMessages.sendToPlayer(new BendingSyncPacket((BendingData) cap), player);
+                                        ctx.getSource().sendSuccess(() -> Component.literal("Set sub-bending index to " + index + " for " + player.getName().getString()), true);
+                                    });
+                                    return 1;
+                                }))
+                )
+        );
+
+
     }
 }
